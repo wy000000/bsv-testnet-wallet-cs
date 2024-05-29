@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utxo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utxo.Designer.cs">
+      <DependentUpon>utxo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="form bsv testnet wallet.resx">
       <DependentUpon>form bsv testnet wallet.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +72,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="utxo.resx">
+      <DependentUpon>utxo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
