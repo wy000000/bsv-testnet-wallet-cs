@@ -28,21 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox8 = new System.Windows.Forms.TextBox();
+			this.tb_wifKey = new System.Windows.Forms.TextBox();
+			this.tb_netStatus = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.bt_encryptSign = new System.Windows.Forms.Button();
+			this.bt_utxo = new System.Windows.Forms.Button();
+			this.bt_refreshBalance = new System.Windows.Forms.Button();
+			this.bt_login = new System.Windows.Forms.Button();
 			this.label7 = new System.Windows.Forms.Label();
-			this.textBox7 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.tb_balance = new System.Windows.Forms.TextBox();
+			this.tb_address = new System.Windows.Forms.TextBox();
+			this.tb_pubKeyHash = new System.Windows.Forms.TextBox();
+			this.tb_compressedPubkey = new System.Windows.Forms.TextBox();
+			this.tb_originalKey = new System.Windows.Forms.TextBox();
+			this.tb_ID = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -50,334 +50,380 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-			this.button5 = new System.Windows.Forms.Button();
-			this.textBox9 = new System.Windows.Forms.TextBox();
-			this.button6 = new System.Windows.Forms.Button();
+			this.bt_tx = new System.Windows.Forms.Button();
+			this.tb_destAddress = new System.Windows.Forms.TextBox();
+			this.bt_send = new System.Windows.Forms.Button();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
-			this.textBox10 = new System.Windows.Forms.TextBox();
+			this.tb_changeAddress = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
-			this.textBox11 = new System.Windows.Forms.TextBox();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.tb_opReturn = new System.Windows.Forms.TextBox();
+			this.radioButton_testnet = new System.Windows.Forms.RadioButton();
+			this.radioButton_mainnet = new System.Windows.Forms.RadioButton();
+			this.label13 = new System.Windows.Forms.Label();
+			this.tb_sats = new System.Windows.Forms.TextBox();
+			this.label14 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
-			// textBox3
+			// tb_wifKey
 			// 
-			this.textBox3.Location = new System.Drawing.Point(104, 101);
-			this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.ReadOnly = true;
-			this.textBox3.Size = new System.Drawing.Size(732, 28);
-			this.textBox3.TabIndex = 45;
+			this.tb_wifKey.Location = new System.Drawing.Point(92, 87);
+			this.tb_wifKey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_wifKey.Name = "tb_wifKey";
+			this.tb_wifKey.ReadOnly = true;
+			this.tb_wifKey.Size = new System.Drawing.Size(651, 25);
+			this.tb_wifKey.TabIndex = 45;
 			// 
-			// textBox8
+			// tb_netStatus
 			// 
-			this.textBox8.Location = new System.Drawing.Point(550, 431);
-			this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.ReadOnly = true;
-			this.textBox8.Size = new System.Drawing.Size(286, 28);
-			this.textBox8.TabIndex = 50;
+			this.tb_netStatus.Location = new System.Drawing.Point(489, 366);
+			this.tb_netStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_netStatus.Name = "tb_netStatus";
+			this.tb_netStatus.ReadOnly = true;
+			this.tb_netStatus.Size = new System.Drawing.Size(255, 25);
+			this.tb_netStatus.TabIndex = 50;
 			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(454, 441);
+			this.label9.Location = new System.Drawing.Point(404, 376);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(98, 18);
+			this.label9.Size = new System.Drawing.Size(82, 15);
 			this.label9.TabIndex = 57;
 			this.label9.Text = "网络状态：";
 			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.label8.Location = new System.Drawing.Point(9, 10);
+			this.label8.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.label8.Location = new System.Drawing.Point(8, 8);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(324, 20);
+			this.label8.Size = new System.Drawing.Size(293, 18);
 			this.label8.TabIndex = 56;
 			this.label8.Text = "输入学号登录会自动生成固定密钥";
 			// 
-			// button2
+			// bt_encryptSign
 			// 
-			this.button2.Location = new System.Drawing.Point(252, 431);
-			this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(177, 28);
-			this.button2.TabIndex = 55;
-			this.button2.Text = "加解密与签名验证";
-			this.button2.UseVisualStyleBackColor = true;
+			this.bt_encryptSign.Location = new System.Drawing.Point(230, 366);
+			this.bt_encryptSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.bt_encryptSign.Name = "bt_encryptSign";
+			this.bt_encryptSign.Size = new System.Drawing.Size(150, 25);
+			this.bt_encryptSign.TabIndex = 55;
+			this.bt_encryptSign.Text = "加解密与签名验证";
+			this.bt_encryptSign.UseVisualStyleBackColor = true;
 			// 
-			// button4
+			// bt_utxo
 			// 
-			this.button4.Location = new System.Drawing.Point(104, 431);
-			this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(66, 28);
-			this.button4.TabIndex = 54;
-			this.button4.Text = "币";
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.button4_Click);
+			this.bt_utxo.Location = new System.Drawing.Point(92, 366);
+			this.bt_utxo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.bt_utxo.Name = "bt_utxo";
+			this.bt_utxo.Size = new System.Drawing.Size(60, 25);
+			this.bt_utxo.TabIndex = 54;
+			this.bt_utxo.Text = "币";
+			this.bt_utxo.UseVisualStyleBackColor = true;
+			this.bt_utxo.Click += new System.EventHandler(this.bt_utxo_Click);
 			// 
-			// button3
+			// bt_refreshBalance
 			// 
-			this.button3.Location = new System.Drawing.Point(457, 229);
-			this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(94, 28);
-			this.button3.TabIndex = 53;
-			this.button3.Text = "刷新余额";
-			this.button3.UseVisualStyleBackColor = true;
+			this.bt_refreshBalance.Location = new System.Drawing.Point(406, 199);
+			this.bt_refreshBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.bt_refreshBalance.Name = "bt_refreshBalance";
+			this.bt_refreshBalance.Size = new System.Drawing.Size(85, 25);
+			this.bt_refreshBalance.TabIndex = 53;
+			this.bt_refreshBalance.Text = "刷新余额";
+			this.bt_refreshBalance.UseVisualStyleBackColor = true;
 			// 
-			// button1
+			// bt_login
 			// 
-			this.button1.Location = new System.Drawing.Point(457, 37);
-			this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(66, 28);
-			this.button1.TabIndex = 52;
-			this.button1.Text = "登录";
-			this.button1.UseVisualStyleBackColor = true;
+			this.bt_login.Location = new System.Drawing.Point(406, 31);
+			this.bt_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.bt_login.Name = "bt_login";
+			this.bt_login.Size = new System.Drawing.Size(60, 25);
+			this.bt_login.TabIndex = 52;
+			this.bt_login.Text = "登录";
+			this.bt_login.UseVisualStyleBackColor = true;
+			this.bt_login.Click += new System.EventHandler(this.bt_login_Click);
 			// 
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(9, 111);
+			this.label7.Location = new System.Drawing.Point(12, 97);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(98, 18);
+			this.label7.Size = new System.Drawing.Size(82, 15);
 			this.label7.TabIndex = 51;
 			this.label7.Text = "钱包密钥：";
 			// 
-			// textBox7
+			// tb_balance
 			// 
-			this.textBox7.Location = new System.Drawing.Point(104, 229);
-			this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.ReadOnly = true;
-			this.textBox7.Size = new System.Drawing.Size(325, 28);
-			this.textBox7.TabIndex = 48;
+			this.tb_balance.Location = new System.Drawing.Point(92, 199);
+			this.tb_balance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_balance.Name = "tb_balance";
+			this.tb_balance.ReadOnly = true;
+			this.tb_balance.Size = new System.Drawing.Size(289, 25);
+			this.tb_balance.TabIndex = 48;
 			// 
-			// textBox6
+			// tb_address
 			// 
-			this.textBox6.Location = new System.Drawing.Point(104, 197);
-			this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.ReadOnly = true;
-			this.textBox6.Size = new System.Drawing.Size(732, 28);
-			this.textBox6.TabIndex = 49;
+			this.tb_address.Location = new System.Drawing.Point(92, 171);
+			this.tb_address.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_address.Name = "tb_address";
+			this.tb_address.ReadOnly = true;
+			this.tb_address.Size = new System.Drawing.Size(651, 25);
+			this.tb_address.TabIndex = 49;
 			// 
-			// textBox5
+			// tb_pubKeyHash
 			// 
-			this.textBox5.Location = new System.Drawing.Point(104, 165);
-			this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.ReadOnly = true;
-			this.textBox5.Size = new System.Drawing.Size(732, 28);
-			this.textBox5.TabIndex = 47;
+			this.tb_pubKeyHash.Location = new System.Drawing.Point(92, 143);
+			this.tb_pubKeyHash.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_pubKeyHash.Name = "tb_pubKeyHash";
+			this.tb_pubKeyHash.ReadOnly = true;
+			this.tb_pubKeyHash.Size = new System.Drawing.Size(651, 25);
+			this.tb_pubKeyHash.TabIndex = 47;
 			// 
-			// textBox4
+			// tb_compressedPubkey
 			// 
-			this.textBox4.Location = new System.Drawing.Point(104, 133);
-			this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.ReadOnly = true;
-			this.textBox4.Size = new System.Drawing.Size(732, 28);
-			this.textBox4.TabIndex = 46;
+			this.tb_compressedPubkey.Location = new System.Drawing.Point(92, 115);
+			this.tb_compressedPubkey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_compressedPubkey.Name = "tb_compressedPubkey";
+			this.tb_compressedPubkey.ReadOnly = true;
+			this.tb_compressedPubkey.Size = new System.Drawing.Size(651, 25);
+			this.tb_compressedPubkey.TabIndex = 46;
 			// 
-			// textBox2
+			// tb_originalKey
 			// 
-			this.textBox2.Location = new System.Drawing.Point(104, 69);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.ReadOnly = true;
-			this.textBox2.Size = new System.Drawing.Size(732, 28);
-			this.textBox2.TabIndex = 44;
+			this.tb_originalKey.Location = new System.Drawing.Point(92, 59);
+			this.tb_originalKey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_originalKey.Name = "tb_originalKey";
+			this.tb_originalKey.ReadOnly = true;
+			this.tb_originalKey.Size = new System.Drawing.Size(651, 25);
+			this.tb_originalKey.TabIndex = 44;
 			// 
-			// textBox1
+			// tb_ID
 			// 
-			this.textBox1.Location = new System.Drawing.Point(104, 37);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(325, 28);
-			this.textBox1.TabIndex = 43;
+			this.tb_ID.Location = new System.Drawing.Point(92, 31);
+			this.tb_ID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_ID.Name = "tb_ID";
+			this.tb_ID.Size = new System.Drawing.Size(289, 25);
+			this.tb_ID.TabIndex = 43;
+			this.tb_ID.Text = "100000";
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(45, 239);
+			this.label6.Location = new System.Drawing.Point(42, 209);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(62, 18);
+			this.label6.Size = new System.Drawing.Size(52, 15);
 			this.label6.TabIndex = 42;
 			this.label6.Text = "余额：";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(45, 207);
+			this.label5.Location = new System.Drawing.Point(42, 181);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(62, 18);
+			this.label5.Size = new System.Drawing.Size(52, 15);
 			this.label5.TabIndex = 41;
 			this.label5.Text = "地址：";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(9, 175);
+			this.label4.Location = new System.Drawing.Point(10, 153);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(98, 18);
+			this.label4.Size = new System.Drawing.Size(84, 15);
 			this.label4.TabIndex = 40;
 			this.label4.Text = "公钥HASH：";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(9, 143);
+			this.label3.Location = new System.Drawing.Point(12, 125);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(98, 18);
+			this.label3.Size = new System.Drawing.Size(82, 15);
 			this.label3.TabIndex = 39;
 			this.label3.Text = "压缩公钥：";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(9, 79);
+			this.label2.Location = new System.Drawing.Point(12, 69);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(98, 18);
+			this.label2.Size = new System.Drawing.Size(82, 15);
 			this.label2.TabIndex = 38;
 			this.label2.Text = "原始私钥：";
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(45, 47);
+			this.label1.Location = new System.Drawing.Point(42, 41);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(62, 18);
+			this.label1.Size = new System.Drawing.Size(52, 15);
 			this.label1.TabIndex = 37;
 			this.label1.Text = "学号：";
 			// 
 			// linkLabel1
 			// 
 			this.linkLabel1.AutoSize = true;
-			this.linkLabel1.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.linkLabel1.Location = new System.Drawing.Point(738, 40);
+			this.linkLabel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.linkLabel1.Location = new System.Drawing.Point(662, 11);
 			this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.linkLabel1.Name = "linkLabel1";
-			this.linkLabel1.Size = new System.Drawing.Size(98, 18);
+			this.linkLabel1.Size = new System.Drawing.Size(82, 15);
 			this.linkLabel1.TabIndex = 36;
 			this.linkLabel1.TabStop = true;
 			this.linkLabel1.Text = "申请测试币";
+			this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
 			// 
-			// button5
+			// bt_tx
 			// 
-			this.button5.Location = new System.Drawing.Point(178, 431);
-			this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(66, 28);
-			this.button5.TabIndex = 54;
-			this.button5.Text = "交易";
-			this.button5.UseVisualStyleBackColor = true;
+			this.bt_tx.Location = new System.Drawing.Point(161, 366);
+			this.bt_tx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.bt_tx.Name = "bt_tx";
+			this.bt_tx.Size = new System.Drawing.Size(60, 25);
+			this.bt_tx.TabIndex = 54;
+			this.bt_tx.Text = "交易";
+			this.bt_tx.UseVisualStyleBackColor = true;
 			// 
-			// textBox9
+			// tb_destAddress
 			// 
-			this.textBox9.Location = new System.Drawing.Point(104, 286);
-			this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox9.Name = "textBox9";
-			this.textBox9.Size = new System.Drawing.Size(732, 28);
-			this.textBox9.TabIndex = 49;
+			this.tb_destAddress.Location = new System.Drawing.Point(92, 240);
+			this.tb_destAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_destAddress.Name = "tb_destAddress";
+			this.tb_destAddress.Size = new System.Drawing.Size(651, 25);
+			this.tb_destAddress.TabIndex = 49;
 			// 
-			// button6
+			// bt_send
 			// 
-			this.button6.Location = new System.Drawing.Point(457, 382);
-			this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(75, 28);
-			this.button6.TabIndex = 53;
-			this.button6.Text = "发送";
-			this.button6.UseVisualStyleBackColor = true;
+			this.bt_send.Location = new System.Drawing.Point(431, 323);
+			this.bt_send.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.bt_send.Name = "bt_send";
+			this.bt_send.Size = new System.Drawing.Size(60, 25);
+			this.bt_send.TabIndex = 53;
+			this.bt_send.Text = "发送";
+			this.bt_send.UseVisualStyleBackColor = true;
 			// 
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(9, 296);
+			this.label10.Location = new System.Drawing.Point(12, 250);
 			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(98, 18);
+			this.label10.Size = new System.Drawing.Size(82, 15);
 			this.label10.TabIndex = 42;
 			this.label10.Text = "发送币到：";
 			// 
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(9, 328);
+			this.label11.Location = new System.Drawing.Point(12, 277);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(98, 18);
+			this.label11.Size = new System.Drawing.Size(82, 15);
 			this.label11.TabIndex = 42;
 			this.label11.Text = "找零币到：";
 			// 
-			// textBox10
+			// tb_changeAddress
 			// 
-			this.textBox10.Location = new System.Drawing.Point(104, 318);
-			this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.Size = new System.Drawing.Size(732, 28);
-			this.textBox10.TabIndex = 49;
+			this.tb_changeAddress.Location = new System.Drawing.Point(92, 267);
+			this.tb_changeAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_changeAddress.Name = "tb_changeAddress";
+			this.tb_changeAddress.Size = new System.Drawing.Size(651, 25);
+			this.tb_changeAddress.TabIndex = 49;
 			// 
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(0, 360);
+			this.label12.Location = new System.Drawing.Point(0, 304);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(107, 18);
+			this.label12.Size = new System.Drawing.Size(94, 15);
 			this.label12.TabIndex = 42;
 			this.label12.Text = "OP_Return：";
 			// 
-			// textBox11
+			// tb_opReturn
 			// 
-			this.textBox11.Location = new System.Drawing.Point(104, 350);
-			this.textBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBox11.Name = "textBox11";
-			this.textBox11.Size = new System.Drawing.Size(732, 28);
-			this.textBox11.TabIndex = 49;
+			this.tb_opReturn.Location = new System.Drawing.Point(92, 294);
+			this.tb_opReturn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_opReturn.Name = "tb_opReturn";
+			this.tb_opReturn.Size = new System.Drawing.Size(651, 25);
+			this.tb_opReturn.TabIndex = 49;
 			// 
-			// comboBox1
+			// radioButton_testnet
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
-            "测试网",
-            "主网"});
-			this.comboBox1.Location = new System.Drawing.Point(550, 37);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 26);
-			this.comboBox1.TabIndex = 58;
-			this.comboBox1.Text = "测试网";
+			this.radioButton_testnet.AutoSize = true;
+			this.radioButton_testnet.Checked = true;
+			this.radioButton_testnet.Location = new System.Drawing.Point(489, 37);
+			this.radioButton_testnet.Name = "radioButton_testnet";
+			this.radioButton_testnet.Size = new System.Drawing.Size(84, 19);
+			this.radioButton_testnet.TabIndex = 59;
+			this.radioButton_testnet.TabStop = true;
+			this.radioButton_testnet.Text = "testnet";
+			this.radioButton_testnet.UseVisualStyleBackColor = true;
+			this.radioButton_testnet.CheckedChanged += new System.EventHandler(this.radioButton_testnet_CheckedChanged);
+			// 
+			// radioButton_mainnet
+			// 
+			this.radioButton_mainnet.AutoSize = true;
+			this.radioButton_mainnet.Location = new System.Drawing.Point(579, 37);
+			this.radioButton_mainnet.Name = "radioButton_mainnet";
+			this.radioButton_mainnet.Size = new System.Drawing.Size(84, 19);
+			this.radioButton_mainnet.TabIndex = 60;
+			this.radioButton_mainnet.Text = "mainnet";
+			this.radioButton_mainnet.UseVisualStyleBackColor = true;
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(12, 333);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(82, 15);
+			this.label13.TabIndex = 42;
+			this.label13.Text = "发送数量：";
+			// 
+			// tb_sats
+			// 
+			this.tb_sats.Location = new System.Drawing.Point(92, 323);
+			this.tb_sats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_sats.Name = "tb_sats";
+			this.tb_sats.Size = new System.Drawing.Size(288, 25);
+			this.tb_sats.TabIndex = 43;
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Location = new System.Drawing.Point(386, 333);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(39, 15);
+			this.label14.TabIndex = 42;
+			this.label14.Text = "sats";
 			// 
 			// F_wallet
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(849, 473);
-			this.Controls.Add(this.comboBox1);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox8);
+			this.ClientSize = new System.Drawing.Size(755, 407);
+			this.Controls.Add(this.radioButton_mainnet);
+			this.Controls.Add(this.radioButton_testnet);
+			this.Controls.Add(this.tb_wifKey);
+			this.Controls.Add(this.tb_netStatus);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label8);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button5);
-			this.Controls.Add(this.button4);
-			this.Controls.Add(this.button6);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.bt_encryptSign);
+			this.Controls.Add(this.bt_tx);
+			this.Controls.Add(this.bt_utxo);
+			this.Controls.Add(this.bt_send);
+			this.Controls.Add(this.bt_refreshBalance);
+			this.Controls.Add(this.bt_login);
 			this.Controls.Add(this.label7);
-			this.Controls.Add(this.textBox7);
-			this.Controls.Add(this.textBox11);
-			this.Controls.Add(this.textBox10);
-			this.Controls.Add(this.textBox9);
-			this.Controls.Add(this.textBox6);
-			this.Controls.Add(this.textBox5);
-			this.Controls.Add(this.textBox4);
+			this.Controls.Add(this.tb_balance);
+			this.Controls.Add(this.tb_opReturn);
+			this.Controls.Add(this.tb_changeAddress);
+			this.Controls.Add(this.tb_destAddress);
+			this.Controls.Add(this.tb_address);
+			this.Controls.Add(this.tb_pubKeyHash);
+			this.Controls.Add(this.tb_compressedPubkey);
 			this.Controls.Add(this.label12);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.tb_originalKey);
 			this.Controls.Add(this.label11);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.tb_sats);
+			this.Controls.Add(this.tb_ID);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
@@ -386,10 +432,13 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.linkLabel1);
-			this.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Controls.Add(this.label14);
+			this.Controls.Add(this.label13);
+			this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.Name = "F_wallet";
 			this.Text = "BSV Testnet Wallet";
+			this.Load += new System.EventHandler(this.F_wallet_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -397,21 +446,21 @@
 
 		#endregion
 
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox8;
+		private System.Windows.Forms.TextBox tb_wifKey;
+		private System.Windows.Forms.TextBox tb_netStatus;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button bt_encryptSign;
+		private System.Windows.Forms.Button bt_utxo;
+		private System.Windows.Forms.Button bt_refreshBalance;
+		private System.Windows.Forms.Button bt_login;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.TextBox textBox7;
-		private System.Windows.Forms.TextBox textBox6;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox tb_balance;
+		private System.Windows.Forms.TextBox tb_address;
+		private System.Windows.Forms.TextBox tb_pubKeyHash;
+		private System.Windows.Forms.TextBox tb_compressedPubkey;
+		private System.Windows.Forms.TextBox tb_originalKey;
+		private System.Windows.Forms.TextBox tb_ID;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
@@ -419,15 +468,19 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.LinkLabel linkLabel1;
-		private System.Windows.Forms.Button button5;
-		private System.Windows.Forms.TextBox textBox9;
-		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Button bt_tx;
+		private System.Windows.Forms.TextBox tb_destAddress;
+		private System.Windows.Forms.Button bt_send;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.TextBox textBox10;
+		private System.Windows.Forms.TextBox tb_changeAddress;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.TextBox textBox11;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.TextBox tb_opReturn;
+		private System.Windows.Forms.RadioButton radioButton_testnet;
+		private System.Windows.Forms.RadioButton radioButton_mainnet;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.TextBox tb_sats;
+		private System.Windows.Forms.Label label14;
 	}
 }
 
