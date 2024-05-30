@@ -42,6 +42,7 @@ namespace bsv_testnet_wallet
 				tb_compressedPubkey.Text = bsvTestWallet.CompressedPubKeyStr;
 				tb_pubKeyHash.Text = bsvTestWallet.PubKeyHashStr;
 				tb_address.Text = bsvTestWallet.AddressStr;
+				tb_balance.Text = bsvTestWallet.BalanceSats.ToString();
 			}
 			else
 			{

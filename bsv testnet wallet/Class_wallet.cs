@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using static System.Net.Mime.MediaTypeNames;
 using NBitcoin;
 using BsvSimpleLibrary;
+using System.Security.Policy;
 
 namespace bsv_testnet_wallet
 {
@@ -25,12 +26,15 @@ namespace bsv_testnet_wallet
 		readonly string compressedPubKeyStr = null;
 		readonly BitcoinAddress address = null;
 		readonly string addressStr = null;
+		int balance = 0;
+		readonly string uri = bsvConfiguration_class.RestApiUri;
 		internal string ID { get { return id; } }
 		internal string OriginalKeyStr { get { return originalKeyStr; } }
 		internal string WifKeyStr { get { return wifKeyStr; } }
 		internal string CompressedPubKeyStr { get { return compressedPubKeyStr; } }
 		internal string PubKeyHashStr { get { return compressedPubKey.Hash.ToString(); } }
 		internal string AddressStr { get { return addressStr; } }
+		internal int BalanceSats { get { return balance; } }
 		internal Class_wallet(string IDstr, bool isTestnet)
 		{
 			id = IDstr;
@@ -59,9 +63,18 @@ namespace bsv_testnet_wallet
 			compressedPubKeyStr = compressedPubKey.ToHex();
 			address = compressedPubKey.GetAddress(NbitNetWork);
 			addressStr = address.ToString();
+			//RestApiUtxo_class[] utxos = RestApi_class.getUtxosByAnAddress(uri, netWork, addressStr);
+			balance = getBalance();
 
-			
+
 		}
+
+		int getBalance()
+		{
+			
+			return (0);
+		}
+
 
 	}
 }
