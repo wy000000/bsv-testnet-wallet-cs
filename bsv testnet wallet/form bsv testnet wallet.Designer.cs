@@ -98,9 +98,9 @@
 			this.label8.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.label8.Location = new System.Drawing.Point(8, 8);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(293, 18);
+			this.label8.Size = new System.Drawing.Size(464, 18);
 			this.label8.TabIndex = 56;
-			this.label8.Text = "输入学号登录会自动生成固定密钥";
+			this.label8.Text = "输入学号登录会自动生成固定密钥。余额需手动刷新。";
 			// 
 			// bt_encryptSign
 			// 
@@ -132,6 +132,7 @@
 			this.bt_refreshBalance.TabIndex = 53;
 			this.bt_refreshBalance.Text = "刷新余额";
 			this.bt_refreshBalance.UseVisualStyleBackColor = true;
+			this.bt_refreshBalance.Click += new System.EventHandler(this.bt_refreshBalance_Click);
 			// 
 			// bt_login
 			// 
@@ -301,6 +302,7 @@
 			this.bt_send.TabIndex = 53;
 			this.bt_send.Text = "发送";
 			this.bt_send.UseVisualStyleBackColor = true;
+			this.bt_send.Click += new System.EventHandler(this.bt_send_Click);
 			// 
 			// label10
 			// 

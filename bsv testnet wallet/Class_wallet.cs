@@ -9,6 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 using NBitcoin;
 using BsvSimpleLibrary;
 using System.Security.Policy;
+using System.Windows.Forms;
 
 namespace bsv_testnet_wallet
 {
@@ -88,6 +89,19 @@ namespace bsv_testnet_wallet
 			});
 			t.Wait();
 			return utxos;
+		}
+
+		internal Dictionary<string, string> sendCoins(long sendSats, string destAddress, string changeBackAddress,
+			string op_returnString)
+		{
+			Transaction tx = null;
+			long fee = 0;
+			long donaFee = 0;
+			Dictionary<string, string> sendTxResponse
+				= bsvTransaction_class.send(WifKeyStr, sendSats, netWork,out tx,out fee, out donaFee,
+				destAddress, changeBackAddress, op_returnString, 1, 0);
+			displayBalance = displayBalance - sendSats - fee - donaFee;
+			return (sendTxResponse);
 		}
 
 

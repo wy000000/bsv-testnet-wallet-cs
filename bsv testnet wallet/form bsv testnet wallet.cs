@@ -45,6 +45,11 @@ namespace bsv_testnet_wallet
 				tb_pubKeyHash.Text = bsvTestWallet.PubKeyHashStr;
 				tb_address.Text = bsvTestWallet.AddressStr;
 				tb_balance.Text = bsvTestWallet.BalanceSats.ToString();
+				tb_changeAddress.Text = bsvTestWallet.AddressStr;
+				/////////////////////
+				tb_destAddress.Text = bsvTestWallet.AddressStr;
+				/////////////////////
+
 
 			}
 			else
@@ -88,6 +93,16 @@ namespace bsv_testnet_wallet
 			tb_opReturn.Clear();
 			tb_sats.Clear();
 			tb_netStatus.Clear();
+		}
+
+		private void bt_refreshBalance_Click(object sender, EventArgs e)
+		{
+			bt_login_Click(sender, e);
+		}
+
+		private void bt_send_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
