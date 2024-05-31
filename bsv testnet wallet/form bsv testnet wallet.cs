@@ -33,6 +33,8 @@ namespace bsv_testnet_wallet
 
 		private void bt_login_Click(object sender, EventArgs e)
 		{
+			this.Enabled = false;
+			clearForm();
 			string ID = tb_ID.Text.Trim();
 			if (!(ID == ""))
 			{
@@ -43,11 +45,13 @@ namespace bsv_testnet_wallet
 				tb_pubKeyHash.Text = bsvTestWallet.PubKeyHashStr;
 				tb_address.Text = bsvTestWallet.AddressStr;
 				tb_balance.Text = bsvTestWallet.BalanceSats.ToString();
+
 			}
 			else
 			{
 				MessageBox.Show("学号为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
+			this.Enabled = true;
 		}
 
 		private void bt_utxo_Click(object sender, EventArgs e)
@@ -67,6 +71,10 @@ namespace bsv_testnet_wallet
 		}
 
 		private void radioButton_testnet_CheckedChanged(object sender, EventArgs e)
+		{
+			clearForm();
+		}
+		void clearForm()
 		{
 			bsvTestWallet = null;
 			tb_originalKey.Clear();

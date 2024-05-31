@@ -14,7 +14,7 @@ namespace bsv_testnet_wallet
 {
 	internal class Class_wallet
 	{
-		readonly string id=null; //10000
+		readonly string id=null; //id=10000
 		readonly string originalKeyStr=null;
 		readonly Key key = null;
 		readonly string netWork = null;
@@ -26,7 +26,9 @@ namespace bsv_testnet_wallet
 		readonly string compressedPubKeyStr = null;
 		readonly BitcoinAddress address = null;
 		readonly string addressStr = null;
-		int balance = 0;
+		long displayBalance = 0;
+		long utxoBalance = 0;
+		RestApiUtxo_class[] utxos = null;
 		readonly string uri = bsvConfiguration_class.RestApiUri;
 		internal string ID { get { return id; } }
 		internal string OriginalKeyStr { get { return originalKeyStr; } }
@@ -34,7 +36,7 @@ namespace bsv_testnet_wallet
 		internal string CompressedPubKeyStr { get { return compressedPubKeyStr; } }
 		internal string PubKeyHashStr { get { return compressedPubKey.Hash.ToString(); } }
 		internal string AddressStr { get { return addressStr; } }
-		internal int BalanceSats { get { return balance; } }
+		internal long BalanceSats { get { return displayBalance; } }
 		internal Class_wallet(string IDstr, bool isTestnet)
 		{
 			id = IDstr;
@@ -63,16 +65,29 @@ namespace bsv_testnet_wallet
 			compressedPubKeyStr = compressedPubKey.ToHex();
 			address = compressedPubKey.GetAddress(NbitNetWork);
 			addressStr = address.ToString();
-			//RestApiUtxo_class[] utxos = RestApi_class.getUtxosByAnAddress(uri, netWork, addressStr);
-			balance = getBalance();
+			getUtxoBalance();
 
 
 		}
 
-		int getBalance()
+		long getUtxoBalance()
 		{
-			
-			return (0);
+			getUtxos();
+			long sum = 0;
+			foreach(RestApiUtxo_class utxo in utxos)
+				sum += utxo.Value;
+			utxoBalance = sum;
+			displayBalance = sum;
+			return (sum);
+		}
+		RestApiUtxo_class[] getUtxos()
+		{
+			Task t = Task.Run(() =>
+			{
+				utxos = RestApi_class.getUtxosByAnAddress(uri, netWork, addressStr);
+			});
+			t.Wait();
+			return utxos;
 		}
 
 
