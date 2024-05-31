@@ -67,8 +67,6 @@ namespace bsv_testnet_wallet
 			address = compressedPubKey.GetAddress(NbitNetWork);
 			addressStr = address.ToString();
 			getUtxoBalance();
-
-
 		}
 
 		long getUtxoBalance()
@@ -90,18 +88,44 @@ namespace bsv_testnet_wallet
 			t.Wait();
 			return utxos;
 		}
+		internal RestApiUtxo_class[] GetUtxos()
+		{
+			if(displayBalance==utxoBalance)
+			{
+				return (utxos);
+			}
+			RestApiUtxo_class[] Utxos = getUtxos();
+			return (utxos);
+		}
 
-		internal Dictionary<string, string> sendCoins(long sendSats, string destAddress, string changeBackAddress,
-			string op_returnString)
+		internal bool sendCoins(long sendSats, string destAddress, string changeBackAddress,
+			string op_returnString, out string outSendInfo)
 		{
 			Transaction tx = null;
 			long fee = 0;
 			long donaFee = 0;
-			Dictionary<string, string> sendTxResponse
-				= bsvTransaction_class.send(WifKeyStr, sendSats, netWork,out tx,out fee, out donaFee,
+			Dictionary<string, string> sendTxResponse = null;
+			outSendInfo = null;
+			bool sendSuccess = false;
+			Task t = Task.Run(() =>
+			{
+				sendTxResponse = bsvTransaction_class.send(WifKeyStr, sendSats, netWork, out tx, out fee, out donaFee,
 				destAddress, changeBackAddress, op_returnString, 1, 0);
-			displayBalance = displayBalance - sendSats - fee - donaFee;
-			return (sendTxResponse);
+			});
+			t.Wait();
+			if (sendTxResponse != null)
+			{
+				outSendInfo = sendTxResponse.First().Value;
+				if (outSendInfo != null && !outSendInfo.Contains("unexpected")) //发送成功
+				{
+					long expectedBalance = displayBalance - sendSats - fee - donaFee;
+					displayBalance = expectedBalance;
+					if (destAddress != null && destAddress == addressStr)
+						displayBalance += sendSats;
+					sendSuccess = true;
+				}
+			}
+			return (sendSuccess);
 		}
 
 

@@ -92,7 +92,7 @@ namespace bsv_testnet_wallet
 			tb_changeAddress.Clear();
 			tb_opReturn.Clear();
 			tb_sats.Clear();
-			tb_netStatus.Clear();
+			//tb_netStatus.Clear();
 		}
 
 		private void bt_refreshBalance_Click(object sender, EventArgs e)
@@ -102,7 +102,17 @@ namespace bsv_testnet_wallet
 
 		private void bt_send_Click(object sender, EventArgs e)
 		{
-
+			this.Enabled = false;
+			string sendInfo = null;
+			bool sendSuccess = bsvTestWallet.sendCoins(long.Parse(tb_sats.Text), tb_destAddress.Text.Trim(),
+				tb_destAddress.Text, tb_opReturn.Text.Trim(), out sendInfo);
+			tb_balance.Text = bsvTestWallet.BalanceSats.ToString();
+			if (sendSuccess)
+				sendInfo = "发送成功！" + sendInfo;
+			else
+				sendInfo = "发送失败！" + sendInfo;
+			MessageBox.Show(sendInfo, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			this.Enabled = true;
 		}
 	}
 }

@@ -29,8 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.tb_wifKey = new System.Windows.Forms.TextBox();
-			this.tb_netStatus = new System.Windows.Forms.TextBox();
-			this.label9 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.bt_encryptSign = new System.Windows.Forms.Button();
 			this.bt_utxo = new System.Windows.Forms.Button();
@@ -74,24 +72,6 @@
 			this.tb_wifKey.Size = new System.Drawing.Size(651, 25);
 			this.tb_wifKey.TabIndex = 45;
 			// 
-			// tb_netStatus
-			// 
-			this.tb_netStatus.Location = new System.Drawing.Point(489, 366);
-			this.tb_netStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.tb_netStatus.Name = "tb_netStatus";
-			this.tb_netStatus.ReadOnly = true;
-			this.tb_netStatus.Size = new System.Drawing.Size(255, 25);
-			this.tb_netStatus.TabIndex = 50;
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(404, 376);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(82, 15);
-			this.label9.TabIndex = 57;
-			this.label9.Text = "网络状态：";
-			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
@@ -104,7 +84,7 @@
 			// 
 			// bt_encryptSign
 			// 
-			this.bt_encryptSign.Location = new System.Drawing.Point(230, 366);
+			this.bt_encryptSign.Location = new System.Drawing.Point(406, 366);
 			this.bt_encryptSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bt_encryptSign.Name = "bt_encryptSign";
 			this.bt_encryptSign.Size = new System.Drawing.Size(150, 25);
@@ -114,7 +94,7 @@
 			// 
 			// bt_utxo
 			// 
-			this.bt_utxo.Location = new System.Drawing.Point(92, 366);
+			this.bt_utxo.Location = new System.Drawing.Point(230, 366);
 			this.bt_utxo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bt_utxo.Name = "bt_utxo";
 			this.bt_utxo.Size = new System.Drawing.Size(60, 25);
@@ -277,7 +257,7 @@
 			// 
 			// bt_tx
 			// 
-			this.bt_tx.Location = new System.Drawing.Point(161, 366);
+			this.bt_tx.Location = new System.Drawing.Point(320, 366);
 			this.bt_tx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bt_tx.Name = "bt_tx";
 			this.bt_tx.Size = new System.Drawing.Size(60, 25);
@@ -404,8 +384,6 @@
 			this.Controls.Add(this.radioButton_mainnet);
 			this.Controls.Add(this.radioButton_testnet);
 			this.Controls.Add(this.tb_wifKey);
-			this.Controls.Add(this.tb_netStatus);
-			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.bt_encryptSign);
 			this.Controls.Add(this.bt_tx);
@@ -449,8 +427,6 @@
 		#endregion
 
 		private System.Windows.Forms.TextBox tb_wifKey;
-		private System.Windows.Forms.TextBox tb_netStatus;
-		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Button bt_encryptSign;
 		private System.Windows.Forms.Button bt_utxo;
