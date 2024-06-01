@@ -13,16 +13,15 @@ namespace bsv_testnet_wallet
 		
 	public partial class F_wallet : Form
 	{
-		internal Class_wallet bsvTestWallet = null;
-
+		//internal Class_wallet Program.bsvTestWallet = null;
 		public F_wallet()
 		{
 			InitializeComponent();
 		}
 
-
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
+			linkLabel1.LinkVisited= true;
 			System.Diagnostics.Process.Start("https://scrypt.io/faucet");
 		}
 
@@ -38,16 +37,16 @@ namespace bsv_testnet_wallet
 			string ID = tb_ID.Text.Trim();
 			if (!(ID == ""))
 			{
-				bsvTestWallet = new Class_wallet(ID, radioButton_testnet.Checked);
-				tb_originalKey.Text = bsvTestWallet.OriginalKeyStr;
-				tb_wifKey.Text=bsvTestWallet.WifKeyStr;
-				tb_compressedPubkey.Text = bsvTestWallet.CompressedPubKeyStr;
-				tb_pubKeyHash.Text = bsvTestWallet.PubKeyHashStr;
-				tb_address.Text = bsvTestWallet.AddressStr;
-				tb_balance.Text = bsvTestWallet.BalanceSats.ToString();
-				tb_changeAddress.Text = bsvTestWallet.AddressStr;
+				Program.bsvTestWallet = new Class_wallet(ID, radioButton_testnet.Checked);
+				tb_originalKey.Text = Program.bsvTestWallet.OriginalKeyStr;
+				tb_wifKey.Text=Program.bsvTestWallet.WifKeyStr;
+				tb_compressedPubkey.Text = Program.bsvTestWallet.CompressedPubKeyStr;
+				tb_pubKeyHash.Text = Program.bsvTestWallet.PubKeyHashStr;
+				tb_address.Text = Program.bsvTestWallet.AddressStr;
+				tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
+				tb_changeAddress.Text = Program.bsvTestWallet.AddressStr;
 				/////////////////////
-				tb_destAddress.Text = bsvTestWallet.AddressStr;
+				tb_destAddress.Text = Program.bsvTestWallet.AddressStr;
 				/////////////////////
 
 
@@ -62,8 +61,8 @@ namespace bsv_testnet_wallet
 		private void bt_utxo_Click(object sender, EventArgs e)
 		{
 			this.Enabled = false;
-			bsvTestWallet.GetUtxos();
-			tb_balance.Text = bsvTestWallet.BalanceSats.ToString();
+			//Program.bsvTestWallet.Utxos;
+			//tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
 
 			Form f_utxo = Application.OpenForms["f_utxo"];
 			if (f_utxo != null && !f_utxo.IsDisposed)
@@ -74,7 +73,7 @@ namespace bsv_testnet_wallet
 			else
 			{
 				// 窗体不存在或已被Dispose，可以创建并显示新窗体
-				f_utxo = new F_utxo();
+				f_utxo = new F_utxo(this);
 				f_utxo.Show();
 			}
 			this.Enabled = true;
@@ -84,9 +83,10 @@ namespace bsv_testnet_wallet
 		{
 			clearForm();
 		}
+
 		void clearForm()
 		{
-			bsvTestWallet = null;
+			Program.bsvTestWallet = null;
 			tb_originalKey.Clear();
 			tb_wifKey.Clear();
 			tb_compressedPubkey.Clear();
@@ -109,15 +109,20 @@ namespace bsv_testnet_wallet
 		{
 			this.Enabled = false;
 			string sendInfo = null;
-			bool sendSuccess = bsvTestWallet.sendCoins(long.Parse(tb_sats.Text), tb_destAddress.Text.Trim(),
+			bool sendSuccess = Program.bsvTestWallet.sendCoins(long.Parse(tb_sats.Text), tb_destAddress.Text.Trim(),
 				tb_destAddress.Text, tb_opReturn.Text.Trim(), out sendInfo);
-			tb_balance.Text = bsvTestWallet.BalanceSats.ToString();
+			tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
 			if (sendSuccess)
 				sendInfo = "发送成功！" + sendInfo;
 			else
 				sendInfo = "发送失败！" + sendInfo;
 			MessageBox.Show(sendInfo, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			this.Enabled = true;
+		}
+
+		public void changeBalance(string balance)
+		{
+			tb_balance.Text=balance;
 		}
 	}
 }

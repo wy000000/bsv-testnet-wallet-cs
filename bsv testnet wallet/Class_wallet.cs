@@ -38,6 +38,8 @@ namespace bsv_testnet_wallet
 		internal string PubKeyHashStr { get { return compressedPubKey.Hash.ToString(); } }
 		internal string AddressStr { get { return addressStr; } }
 		internal long BalanceSats { get { return displayBalance; } }
+		internal RestApiUtxo_class[] Utxos { get { GetUtxosForOutside(); return utxos; } }
+
 		internal Class_wallet(string IDstr, bool isTestnet)
 		{
 			id = IDstr;
@@ -88,7 +90,7 @@ namespace bsv_testnet_wallet
 			t.Wait();
 			return utxos;
 		}
-		internal RestApiUtxo_class[] GetUtxos()
+		RestApiUtxo_class[] GetUtxosForOutside()
 		{
 			if(displayBalance==utxoBalance)
 			{
@@ -97,7 +99,6 @@ namespace bsv_testnet_wallet
 			getUtxoBalance();//更新utxo和余额
 			return (utxos);
 		}
-
 		internal bool sendCoins(long sendSats, string destAddress, string changeBackAddress,
 			string op_returnString, out string outSendInfo)
 		{
