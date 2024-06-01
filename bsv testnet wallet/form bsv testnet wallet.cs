@@ -151,6 +151,7 @@ namespace bsv_testnet_wallet
 			if (tb_address.Text != null && tb_address.Text != "")
 			{
 				System.Diagnostics.Process.Start("https://test.whatsonchain.com/address/" + tb_address.Text);
+				tb_address.BackColor = SystemColors.Control;
 				tb_address.ForeColor = Color.Purple;
 			}
 		}
