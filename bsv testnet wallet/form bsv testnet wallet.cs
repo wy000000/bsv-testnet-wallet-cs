@@ -61,6 +61,10 @@ namespace bsv_testnet_wallet
 
 		private void bt_utxo_Click(object sender, EventArgs e)
 		{
+			this.Enabled = false;
+			bsvTestWallet.GetUtxos();
+			tb_balance.Text = bsvTestWallet.BalanceSats.ToString();
+
 			Form f_utxo = Application.OpenForms["f_utxo"];
 			if (f_utxo != null && !f_utxo.IsDisposed)
 			{
@@ -73,6 +77,7 @@ namespace bsv_testnet_wallet
 				f_utxo = new F_utxo();
 				f_utxo.Show();
 			}
+			this.Enabled = true;
 		}
 
 		private void radioButton_testnet_CheckedChanged(object sender, EventArgs e)

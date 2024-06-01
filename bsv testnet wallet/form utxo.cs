@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BsvSimpleLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,9 +24,10 @@ namespace bsv_testnet_wallet
 
 		}
 
-		private void F_utxo_FormClosing(object sender, FormClosingEventArgs e)
+		void showUtxos()
 		{
-			//F_wallet.b_f_utxo_closed = true;
+			foreach(RestApiUtxo_class utxo in bsv)
+
 		}
 	}
 }

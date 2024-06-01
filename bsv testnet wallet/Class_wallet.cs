@@ -94,7 +94,7 @@ namespace bsv_testnet_wallet
 			{
 				return (utxos);
 			}
-			RestApiUtxo_class[] Utxos = getUtxos();
+			getUtxoBalance();//更新utxo和余额
 			return (utxos);
 		}
 
