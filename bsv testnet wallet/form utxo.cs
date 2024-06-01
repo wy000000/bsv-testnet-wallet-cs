@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace bsv_testnet_wallet
 {
@@ -42,6 +43,10 @@ namespace bsv_testnet_wallet
 					linkLabels[i] = new LinkLabel();
 					linkLabels[i].AutoSize = true;
 					linkLabels[i].Text = JsonConvert.SerializeObject(utxos[i]);
+					string url = "https://test.whatsonchain.com/tx/" + utxos[i].TxId;
+					linkLabels[i].Links.Add(0, linkLabels[i].Text.Length, url);
+					// 添加LinkClicked事件处理程序
+					linkLabels[i].LinkClicked += LinkLabel_LinkClicked;
 					flowLayoutPanel1.Controls.Add(linkLabels[i]);
 				}
 			}
@@ -50,17 +55,22 @@ namespace bsv_testnet_wallet
 		}
 		void removeLinkLabel()
 		{
+			List < Control > removelist= new List<Control>();
 			foreach(Control control in flowLayoutPanel1.Controls)
-			{
 				if(control is LinkLabel)
-				{
-					flowLayoutPanel1.Controls.Remove(control);
-				}
-			}
+					removelist.Add(control);
+			foreach(Control control in removelist)
+				flowLayoutPanel1.Controls.Remove(control);
 		}
+
 		private void bt_refresh_Click(object sender, EventArgs e)
 		{
 			showUtxos();
+		}
+		private void LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			// 打开默认浏览器访问指定网页
+			Process.Start(e.Link.LinkData.ToString());
 		}
 	}
 }
