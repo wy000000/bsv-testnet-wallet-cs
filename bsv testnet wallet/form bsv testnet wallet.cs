@@ -124,5 +124,39 @@ namespace bsv_testnet_wallet
 		{
 			tb_balance.Text=balance;
 		}
+
+		private void bt_tx_Click(object sender, EventArgs e)
+		{
+			this.Enabled = false;
+			//Program.bsvTestWallet.Utxos;
+			//tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
+
+			Form f_tx = Application.OpenForms["f_tx"];
+			if (f_tx != null && !f_tx.IsDisposed)
+			{
+				// 窗体存在且没有被Dispose
+				f_tx.Activate(); // 将窗体调到前面显示
+			}
+			else
+			{
+				// 窗体不存在或已被Dispose，可以创建并显示新窗体
+				f_tx = new F_tx();
+				f_tx.Show();
+			}
+			this.Enabled = true;
+		}
+
+		private void tb_address_DoubleClick(object sender, EventArgs e)
+		{
+			if (tb_address.Text != null && tb_address.Text != "")
+			{
+				System.Diagnostics.Process.Start("https://test.whatsonchain.com/address/" + tb_address.Text);
+				tb_address.ForeColor = Color.Purple;
+			}
+		}
+
+		private void tb_address_TextChanged(object sender, EventArgs e)
+		{
+		}
 	}
 }

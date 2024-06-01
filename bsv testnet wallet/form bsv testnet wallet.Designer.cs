@@ -61,6 +61,7 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.tb_sats = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// tb_wifKey
@@ -145,12 +146,15 @@
 			// 
 			// tb_address
 			// 
+			this.tb_address.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.tb_address.Location = new System.Drawing.Point(92, 171);
 			this.tb_address.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tb_address.Name = "tb_address";
 			this.tb_address.ReadOnly = true;
-			this.tb_address.Size = new System.Drawing.Size(651, 25);
+			this.tb_address.Size = new System.Drawing.Size(504, 25);
 			this.tb_address.TabIndex = 49;
+			this.tb_address.TextChanged += new System.EventHandler(this.tb_address_TextChanged);
+			this.tb_address.DoubleClick += new System.EventHandler(this.tb_address_DoubleClick);
 			// 
 			// tb_pubKeyHash
 			// 
@@ -264,6 +268,7 @@
 			this.bt_tx.TabIndex = 54;
 			this.bt_tx.Text = "交易";
 			this.bt_tx.UseVisualStyleBackColor = true;
+			this.bt_tx.Click += new System.EventHandler(this.bt_tx_Click);
 			// 
 			// tb_destAddress
 			// 
@@ -376,6 +381,15 @@
 			this.label14.TabIndex = 42;
 			this.label14.Text = "sats";
 			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(602, 181);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(142, 15);
+			this.label9.TabIndex = 42;
+			this.label9.Text = "双击地址跳转网站。";
+			// 
 			// F_wallet
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -413,6 +427,7 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.linkLabel1);
 			this.Controls.Add(this.label14);
+			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label13);
 			this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -459,6 +474,7 @@
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox tb_sats;
 		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label9;
 	}
 }
 
