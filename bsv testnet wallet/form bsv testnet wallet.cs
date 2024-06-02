@@ -34,27 +34,26 @@ namespace bsv_testnet_wallet
 		{
 			this.Enabled = false;
 			clearForm();
-			string ID = tb_ID.Text.Trim();
-			if (!(ID == ""))
-			{
-				Program.bsvTestWallet = new Class_wallet(ID, radioButton_testnet.Checked);
-				tb_originalKey.Text = Program.bsvTestWallet.OriginalKeyStr;
-				tb_wifKey.Text=Program.bsvTestWallet.WifKeyStr;
-				tb_compressedPubkey.Text = Program.bsvTestWallet.CompressedPubKeyStr;
-				tb_pubKeyHash.Text = Program.bsvTestWallet.PubKeyHashStr;
-				tb_address.Text = Program.bsvTestWallet.AddressStr;
-				tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
-				tb_changeAddress.Text = Program.bsvTestWallet.AddressStr;
-				/////////////////////
-				tb_destAddress.Text = Program.bsvTestWallet.AddressStr;
-				/////////////////////
-
-
-			}
-			else
-			{
-				MessageBox.Show("学号为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			}
+			Program.showForm("f_login", "F_login", this);
+			//string ID = tb_ID.Text.Trim();
+			//if (!(ID == ""))
+			//{
+			//	Program.bsvTestWallet = new Class_wallet(ID, radioButton_testnet.Checked);
+			//	tb_originalKey.Text = Program.bsvTestWallet.OriginalKeyStr;
+			//	tb_wifKey.Text=Program.bsvTestWallet.WifKeyStr;
+			//	tb_compressedPubkey.Text = Program.bsvTestWallet.CompressedPubKeyStr;
+			//	tb_pubKeyHash.Text = Program.bsvTestWallet.PubKeyHashStr;
+			//	tb_address.Text = Program.bsvTestWallet.AddressStr;
+			//	tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
+			//	tb_changeAddress.Text = Program.bsvTestWallet.AddressStr;
+			//	/////////////////////
+			//	tb_destAddress.Text = Program.bsvTestWallet.AddressStr;
+			//	/////////////////////
+			//}
+			//else
+			//{
+			//	MessageBox.Show("学号为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			//}
 			this.Enabled = true;
 		}
 
@@ -63,18 +62,19 @@ namespace bsv_testnet_wallet
 			this.Enabled = false;
 			if (Program.bsvTestWallet != null)
 			{
-				Form f_utxo = Application.OpenForms["f_utxo"];
-				if (f_utxo != null && !f_utxo.IsDisposed)
-				{
-					// 窗体存在且没有被Dispose
-					f_utxo.Activate(); // 将窗体调到前面显示
-				}
-				else
-				{
-					// 窗体不存在或已被Dispose，可以创建并显示新窗体
-					f_utxo = new F_utxo(this);
-					f_utxo.Show();
-				}
+				Program.showForm("f_utxo", "F_utxo", this);
+				//Form f_utxo = Application.OpenForms["f_utxo"];
+				//if (f_utxo != null && !f_utxo.IsDisposed)
+				//{
+				//	// 窗体存在且没有被Dispose
+				//	f_utxo.Activate(); // 将窗体调到前面显示
+				//}
+				//else
+				//{
+				//	// 窗体不存在或已被Dispose，可以创建并显示新窗体
+				//	f_utxo = new F_utxo(this);
+				//	f_utxo.Show();
+				//}
 			}
 			this.Enabled = true;
 		}
@@ -83,18 +83,19 @@ namespace bsv_testnet_wallet
 			this.Enabled = false;
 			if (Program.bsvTestWallet != null)
 			{
-				Form f_tx = Application.OpenForms["f_tx"];
-				if (f_tx != null && !f_tx.IsDisposed)
-				{
-					// 窗体存在且没有被Dispose
-					f_tx.Activate(); // 将窗体调到前面显示
-				}
-				else
-				{
-					// 窗体不存在或已被Dispose，可以创建并显示新窗体
-					f_tx = new F_tx(this);
-					f_tx.Show();
-				}
+				Program.showForm("f_tx", "F_tx", this);
+				//Form f_tx = Application.OpenForms["f_tx"];
+				//if (f_tx != null && !f_tx.IsDisposed)
+				//{
+				//	// 窗体存在且没有被Dispose
+				//	f_tx.Activate(); // 将窗体调到前面显示
+				//}
+				//else
+				//{
+				//	// 窗体不存在或已被Dispose，可以创建并显示新窗体
+				//	f_tx = new F_tx(this);
+				//	f_tx.Show();
+				//}
 			}
 			this.Enabled = true;
 		}
@@ -125,7 +126,7 @@ namespace bsv_testnet_wallet
 			this.Enabled=false;
 			if (Program.bsvTestWallet != null)
 			{
-				Program.bsvTestWallet.GetUtxosForOutside();
+				Program.bsvTestWallet.getUtxosAndRefreshBalance();
 				changeBalance();
 			}
 			this.Enabled = true;

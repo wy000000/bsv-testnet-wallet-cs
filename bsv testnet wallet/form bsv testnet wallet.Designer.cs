@@ -188,6 +188,7 @@
 			this.tb_ID.Location = new System.Drawing.Point(92, 31);
 			this.tb_ID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tb_ID.Name = "tb_ID";
+			this.tb_ID.ReadOnly = true;
 			this.tb_ID.Size = new System.Drawing.Size(289, 25);
 			this.tb_ID.TabIndex = 43;
 			this.tb_ID.Text = "100000";

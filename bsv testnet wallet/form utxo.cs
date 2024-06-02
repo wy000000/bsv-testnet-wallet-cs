@@ -36,7 +36,7 @@ namespace bsv_testnet_wallet
 
 			if (Program.bsvTestWallet != null)
 			{
-				RestApiUtxo_class[] utxos = Program.bsvTestWallet.GetUtxosForOutside();
+				RestApiUtxo_class[] utxos = Program.bsvTestWallet.getUtxosAndRefreshBalance();
 				if (utxos != null)
 				{
 					f_main.changeBalance();
