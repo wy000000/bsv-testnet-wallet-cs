@@ -31,46 +31,46 @@ namespace bsv_testnet_wallet
 		void showUtxos()
 		{
 			this.Enabled = false;
-			removeLinkLabel();
+			Program.removeLinkLabel(flowLayoutPanel1);
 			f_main.Enabled = false;
-			if (Program.bsvTestWallet != null && Program.bsvTestWallet.Utxos != null)
+
+			if (Program.bsvTestWallet != null)
 			{
-				f_main.changeBalance(Program.bsvTestWallet.BalanceSats.ToString());
-				RestApiUtxo_class[] utxos = Program.bsvTestWallet.Utxos;
-				linkLabels = new LinkLabel[utxos.Length];
-				for (int i = 0; i < linkLabels.Length; i++)
+				RestApiUtxo_class[] utxos = Program.bsvTestWallet.GetUtxosForOutside();
+				if (utxos != null)
 				{
-					linkLabels[i] = new LinkLabel();
-					linkLabels[i].AutoSize = true;
-					linkLabels[i].Text = JsonConvert.SerializeObject(utxos[i]);
-					string url = "https://test.whatsonchain.com/tx/" + utxos[i].TxId;
-					linkLabels[i].Links.Add(0, linkLabels[i].Text.Length, url);
-					// 添加LinkClicked事件处理程序
-					linkLabels[i].LinkClicked += LinkLabel_LinkClicked;
-					flowLayoutPanel1.Controls.Add(linkLabels[i]);
+					f_main.changeBalance();
+					//= Program.bsvTestWallet.Utxos;
+					linkLabels = new LinkLabel[utxos.Length];
+					for (int i = 0; i < linkLabels.Length; i++)
+					{
+						linkLabels[i] = new LinkLabel();
+						linkLabels[i].AutoSize = true;
+						linkLabels[i].Text = JsonConvert.SerializeObject(utxos[i]);
+						string url = "https://test.whatsonchain.com/tx/" + utxos[i].TxId;
+						linkLabels[i].Links.Add(0, linkLabels[i].Text.Length, url);
+						// 添加LinkClicked事件处理程序
+						linkLabels[i].LinkClicked += Program.LinkLabel_LinkClicked;
+						flowLayoutPanel1.Controls.Add(linkLabels[i]);
+					}
 				}
 			}
 			f_main.Enabled = true;
 			this.Enabled = true;
 		}
-		void removeLinkLabel()
-		{
-			List < Control > removelist= new List<Control>();
-			foreach(Control control in flowLayoutPanel1.Controls)
-				if(control is LinkLabel)
-					removelist.Add(control);
-			foreach(Control control in removelist)
-				flowLayoutPanel1.Controls.Remove(control);
-		}
-
 		private void bt_refresh_Click(object sender, EventArgs e)
 		{
 			showUtxos();
 		}
-		private void LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		//private void LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		//{
+		//	// 打开默认浏览器访问指定网页
+		//	Process.Start(e.Link.LinkData.ToString());
+		//}
+
+		private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
 		{
-			// 打开默认浏览器访问指定网页
-			Process.Start(e.Link.LinkData.ToString());
+
 		}
 	}
 }

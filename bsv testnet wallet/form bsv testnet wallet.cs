@@ -61,20 +61,40 @@ namespace bsv_testnet_wallet
 		private void bt_utxo_Click(object sender, EventArgs e)
 		{
 			this.Enabled = false;
-			//Program.bsvTestWallet.Utxos;
-			//tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
-
-			Form f_utxo = Application.OpenForms["f_utxo"];
-			if (f_utxo != null && !f_utxo.IsDisposed)
+			if (Program.bsvTestWallet != null)
 			{
-				// 窗体存在且没有被Dispose
-				f_utxo.Activate(); // 将窗体调到前面显示
+				Form f_utxo = Application.OpenForms["f_utxo"];
+				if (f_utxo != null && !f_utxo.IsDisposed)
+				{
+					// 窗体存在且没有被Dispose
+					f_utxo.Activate(); // 将窗体调到前面显示
+				}
+				else
+				{
+					// 窗体不存在或已被Dispose，可以创建并显示新窗体
+					f_utxo = new F_utxo(this);
+					f_utxo.Show();
+				}
 			}
-			else
+			this.Enabled = true;
+		}
+		private void bt_tx_Click(object sender, EventArgs e)
+		{
+			this.Enabled = false;
+			if (Program.bsvTestWallet != null)
 			{
-				// 窗体不存在或已被Dispose，可以创建并显示新窗体
-				f_utxo = new F_utxo(this);
-				f_utxo.Show();
+				Form f_tx = Application.OpenForms["f_tx"];
+				if (f_tx != null && !f_tx.IsDisposed)
+				{
+					// 窗体存在且没有被Dispose
+					f_tx.Activate(); // 将窗体调到前面显示
+				}
+				else
+				{
+					// 窗体不存在或已被Dispose，可以创建并显示新窗体
+					f_tx = new F_tx(this);
+					f_tx.Show();
+				}
 			}
 			this.Enabled = true;
 		}
@@ -102,48 +122,50 @@ namespace bsv_testnet_wallet
 
 		private void bt_refreshBalance_Click(object sender, EventArgs e)
 		{
-			bt_login_Click(sender, e);
+			this.Enabled=false;
+			if (Program.bsvTestWallet != null)
+			{
+				Program.bsvTestWallet.GetUtxosForOutside();
+				changeBalance();
+			}
+			this.Enabled = true;
 		}
 
 		private void bt_send_Click(object sender, EventArgs e)
 		{
 			this.Enabled = false;
+			if(Program.bsvTestWallet==null)
+			{
+				MessageBox.Show("未登录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Enabled = true;
+				return;
+			}
+			if(tb_sats.Text=="")
+			{
+				MessageBox.Show("发送数量为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Enabled = true;
+				return;
+			}
 			string sendInfo = null;
 			bool sendSuccess = Program.bsvTestWallet.sendCoins(long.Parse(tb_sats.Text), tb_destAddress.Text.Trim(),
 				tb_destAddress.Text, tb_opReturn.Text.Trim(), out sendInfo);
 			tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
 			if (sendSuccess)
+			{
 				sendInfo = "发送成功！" + sendInfo;
+				MessageBox.Show(sendInfo, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			}
 			else
+			{
 				sendInfo = "发送失败！" + sendInfo;
-			MessageBox.Show(sendInfo, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				MessageBox.Show(sendInfo, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			this.Enabled = true;
 		}
 
-		public void changeBalance(string balance)
+		public void changeBalance()
 		{
-			tb_balance.Text=balance;
-		}
-
-		private void bt_tx_Click(object sender, EventArgs e)
-		{
-			this.Enabled = false;
-			//Program.bsvTestWallet.Utxos;
-			//tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
-
-			Form f_tx = Application.OpenForms["f_tx"];
-			if (f_tx != null && !f_tx.IsDisposed)
-			{
-				// 窗体存在且没有被Dispose
-				f_tx.Activate(); // 将窗体调到前面显示
-			}
-			else
-			{
-				// 窗体不存在或已被Dispose，可以创建并显示新窗体
-				f_tx = new F_tx();
-				f_tx.Show();
-			}
-			this.Enabled = true;
+			tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
 		}
 
 		private void tb_address_DoubleClick(object sender, EventArgs e)

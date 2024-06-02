@@ -43,7 +43,6 @@
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 450);
 			this.flowLayoutPanel1.TabIndex = 0;
 			this.flowLayoutPanel1.WrapContents = false;
-			this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
 			// 
 			// bt_refresh
 			// 
@@ -53,6 +52,7 @@
 			this.bt_refresh.TabIndex = 0;
 			this.bt_refresh.Text = "刷新";
 			this.bt_refresh.UseVisualStyleBackColor = true;
+			this.bt_refresh.Click += new System.EventHandler(this.bt_refresh_Click);
 			// 
 			// F_tx
 			// 
@@ -62,6 +62,7 @@
 			this.Controls.Add(this.flowLayoutPanel1);
 			this.Name = "F_tx";
 			this.Text = "交易";
+			this.Load += new System.EventHandler(this.F_tx_Load);
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
