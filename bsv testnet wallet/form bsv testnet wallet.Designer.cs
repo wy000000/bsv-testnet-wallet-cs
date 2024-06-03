@@ -56,12 +56,12 @@
 			this.tb_changeAddress = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.tb_opReturn = new System.Windows.Forms.TextBox();
-			this.radioButton_testnet = new System.Windows.Forms.RadioButton();
-			this.radioButton_mainnet = new System.Windows.Forms.RadioButton();
 			this.label13 = new System.Windows.Forms.Label();
 			this.tb_sats = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.tb_network = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// tb_wifKey
@@ -117,10 +117,10 @@
 			// 
 			// bt_login
 			// 
-			this.bt_login.Location = new System.Drawing.Point(406, 31);
+			this.bt_login.Location = new System.Drawing.Point(665, 31);
 			this.bt_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bt_login.Name = "bt_login";
-			this.bt_login.Size = new System.Drawing.Size(60, 25);
+			this.bt_login.Size = new System.Drawing.Size(79, 25);
 			this.bt_login.TabIndex = 52;
 			this.bt_login.Text = "登录";
 			this.bt_login.UseVisualStyleBackColor = true;
@@ -191,7 +191,6 @@
 			this.tb_ID.ReadOnly = true;
 			this.tb_ID.Size = new System.Drawing.Size(289, 25);
 			this.tb_ID.TabIndex = 43;
-			this.tb_ID.Text = "100000";
 			// 
 			// label6
 			// 
@@ -333,29 +332,6 @@
 			this.tb_opReturn.Size = new System.Drawing.Size(651, 25);
 			this.tb_opReturn.TabIndex = 49;
 			// 
-			// radioButton_testnet
-			// 
-			this.radioButton_testnet.AutoSize = true;
-			this.radioButton_testnet.Checked = true;
-			this.radioButton_testnet.Location = new System.Drawing.Point(489, 37);
-			this.radioButton_testnet.Name = "radioButton_testnet";
-			this.radioButton_testnet.Size = new System.Drawing.Size(84, 19);
-			this.radioButton_testnet.TabIndex = 59;
-			this.radioButton_testnet.TabStop = true;
-			this.radioButton_testnet.Text = "testnet";
-			this.radioButton_testnet.UseVisualStyleBackColor = true;
-			this.radioButton_testnet.CheckedChanged += new System.EventHandler(this.radioButton_testnet_CheckedChanged);
-			// 
-			// radioButton_mainnet
-			// 
-			this.radioButton_mainnet.AutoSize = true;
-			this.radioButton_mainnet.Location = new System.Drawing.Point(579, 37);
-			this.radioButton_mainnet.Name = "radioButton_mainnet";
-			this.radioButton_mainnet.Size = new System.Drawing.Size(84, 19);
-			this.radioButton_mainnet.TabIndex = 60;
-			this.radioButton_mainnet.Text = "mainnet";
-			this.radioButton_mainnet.UseVisualStyleBackColor = true;
-			// 
 			// label13
 			// 
 			this.label13.AutoSize = true;
@@ -391,13 +367,29 @@
 			this.label9.TabIndex = 42;
 			this.label9.Text = "双击地址跳转网站。";
 			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(403, 41);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(52, 15);
+			this.label15.TabIndex = 37;
+			this.label15.Text = "网络：";
+			// 
+			// tb_network
+			// 
+			this.tb_network.Location = new System.Drawing.Point(454, 31);
+			this.tb_network.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tb_network.Name = "tb_network";
+			this.tb_network.ReadOnly = true;
+			this.tb_network.Size = new System.Drawing.Size(171, 25);
+			this.tb_network.TabIndex = 43;
+			// 
 			// F_wallet
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(755, 407);
-			this.Controls.Add(this.radioButton_mainnet);
-			this.Controls.Add(this.radioButton_testnet);
 			this.Controls.Add(this.tb_wifKey);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.bt_encryptSign);
@@ -418,6 +410,7 @@
 			this.Controls.Add(this.tb_originalKey);
 			this.Controls.Add(this.label11);
 			this.Controls.Add(this.tb_sats);
+			this.Controls.Add(this.tb_network);
 			this.Controls.Add(this.tb_ID);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label6);
@@ -425,6 +418,7 @@
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label15);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.linkLabel1);
 			this.Controls.Add(this.label14);
@@ -470,12 +464,12 @@
 		private System.Windows.Forms.TextBox tb_changeAddress;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox tb_opReturn;
-		private System.Windows.Forms.RadioButton radioButton_testnet;
-		private System.Windows.Forms.RadioButton radioButton_mainnet;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox tb_sats;
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.TextBox tb_network;
 	}
 }
 

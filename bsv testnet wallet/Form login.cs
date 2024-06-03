@@ -26,25 +26,41 @@ namespace bsv_testnet_wallet
 
 		private void bt_login_Click(object sender, EventArgs e)
 		{
+			this.Enabled = false;
 			f_main.Enabled=false;
+
 			if(rb_address.Checked)
 			{
 				if (tb_address.Text == "")
-				{ { MessageBox.Show("地址为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error); return; } }
-				Program.bsvTestWallet=new Class_wallet(tb_address.Text, )
+					 MessageBox.Show("地址为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				else
+				Program.bsvTestWallet = Class_wallet.createBsvWallet(tb_address.Text, radioButton_testnet.Checked,
+					Class_wallet.walletTypeAddress);
 			}
-
-
+			if (rb_wifKey.Checked)
+			{
+				if (tb_wifKey.Text == "")
+					MessageBox.Show("钱包私钥为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				else
+					Program.bsvTestWallet = Class_wallet.createBsvWallet(tb_wifKey.Text, radioButton_testnet.Checked,
+						Class_wallet.walletTypeWifKey);
+			}
 			if (rb_id.Checked)
 			{
-				if (tb_ID.Text.Trim() == "")
-				{ MessageBox.Show("学号为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
-				//Program.bsvTestWallet = new Class_wallet();
-
+				if (tb_ID.Text == "")
+					MessageBox.Show("学号为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				else
+					Program.bsvTestWallet = Class_wallet.createBsvWallet(tb_ID.Text, radioButton_testnet.Checked,
+						Class_wallet.walletTypeID);
 			}
-
-
 			f_main.Enabled = true;
+			this.Enabled = true;
+			if (Program.bsvTestWallet != null)
+			{
+				f_main.showWalletInfo();
+				f_main.Activate();
+				this.Close();
+			}
 		}
 
 		private void rb_id_CheckedChanged(object sender, EventArgs e)

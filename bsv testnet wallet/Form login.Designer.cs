@@ -35,11 +35,15 @@
 			this.rb_id = new System.Windows.Forms.RadioButton();
 			this.rb_wifKey = new System.Windows.Forms.RadioButton();
 			this.rb_address = new System.Windows.Forms.RadioButton();
+			this.radioButton_mainnet = new System.Windows.Forms.RadioButton();
+			this.radioButton_testnet = new System.Windows.Forms.RadioButton();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tb_wifKey
 			// 
-			this.tb_wifKey.Location = new System.Drawing.Point(106, 40);
+			this.tb_wifKey.Location = new System.Drawing.Point(100, 101);
 			this.tb_wifKey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tb_wifKey.Name = "tb_wifKey";
 			this.tb_wifKey.ReadOnly = true;
@@ -48,7 +52,7 @@
 			// 
 			// bt_login
 			// 
-			this.bt_login.Location = new System.Drawing.Point(365, 98);
+			this.bt_login.Location = new System.Drawing.Point(186, 15);
 			this.bt_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bt_login.Name = "bt_login";
 			this.bt_login.Size = new System.Drawing.Size(60, 25);
@@ -60,7 +64,7 @@
 			// tb_address
 			// 
 			this.tb_address.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.tb_address.Location = new System.Drawing.Point(106, 69);
+			this.tb_address.Location = new System.Drawing.Point(100, 130);
 			this.tb_address.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tb_address.Name = "tb_address";
 			this.tb_address.ReadOnly = true;
@@ -69,18 +73,18 @@
 			// 
 			// tb_ID
 			// 
-			this.tb_ID.Location = new System.Drawing.Point(106, 11);
+			this.tb_ID.Location = new System.Drawing.Point(100, 72);
 			this.tb_ID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tb_ID.Name = "tb_ID";
 			this.tb_ID.Size = new System.Drawing.Size(619, 25);
 			this.tb_ID.TabIndex = 55;
-			this.tb_ID.Text = "100000";
+			this.tb_ID.Text = "10000";
 			// 
 			// rb_id
 			// 
 			this.rb_id.AutoSize = true;
 			this.rb_id.Checked = true;
-			this.rb_id.Location = new System.Drawing.Point(12, 17);
+			this.rb_id.Location = new System.Drawing.Point(6, 78);
 			this.rb_id.Name = "rb_id";
 			this.rb_id.Size = new System.Drawing.Size(58, 19);
 			this.rb_id.TabIndex = 60;
@@ -92,7 +96,7 @@
 			// rb_wifKey
 			// 
 			this.rb_wifKey.AutoSize = true;
-			this.rb_wifKey.Location = new System.Drawing.Point(12, 46);
+			this.rb_wifKey.Location = new System.Drawing.Point(6, 107);
 			this.rb_wifKey.Name = "rb_wifKey";
 			this.rb_wifKey.Size = new System.Drawing.Size(88, 19);
 			this.rb_wifKey.TabIndex = 60;
@@ -103,7 +107,7 @@
 			// rb_address
 			// 
 			this.rb_address.AutoSize = true;
-			this.rb_address.Location = new System.Drawing.Point(12, 75);
+			this.rb_address.Location = new System.Drawing.Point(6, 136);
 			this.rb_address.Name = "rb_address";
 			this.rb_address.Size = new System.Drawing.Size(58, 19);
 			this.rb_address.TabIndex = 60;
@@ -111,21 +115,56 @@
 			this.rb_address.UseVisualStyleBackColor = true;
 			this.rb_address.CheckedChanged += new System.EventHandler(this.rb_address_CheckedChanged);
 			// 
+			// radioButton_mainnet
+			// 
+			this.radioButton_mainnet.AutoSize = true;
+			this.radioButton_mainnet.Location = new System.Drawing.Point(96, 21);
+			this.radioButton_mainnet.Name = "radioButton_mainnet";
+			this.radioButton_mainnet.Size = new System.Drawing.Size(84, 19);
+			this.radioButton_mainnet.TabIndex = 62;
+			this.radioButton_mainnet.Text = "mainnet";
+			this.radioButton_mainnet.UseVisualStyleBackColor = true;
+			// 
+			// radioButton_testnet
+			// 
+			this.radioButton_testnet.AutoSize = true;
+			this.radioButton_testnet.Checked = true;
+			this.radioButton_testnet.Location = new System.Drawing.Point(6, 21);
+			this.radioButton_testnet.Name = "radioButton_testnet";
+			this.radioButton_testnet.Size = new System.Drawing.Size(84, 19);
+			this.radioButton_testnet.TabIndex = 61;
+			this.radioButton_testnet.TabStop = true;
+			this.radioButton_testnet.Text = "testnet";
+			this.radioButton_testnet.UseVisualStyleBackColor = true;
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.radioButton_testnet);
+			this.groupBox1.Controls.Add(this.radioButton_mainnet);
+			this.groupBox1.Controls.Add(this.bt_login);
+			this.groupBox1.Location = new System.Drawing.Point(100, 12);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(270, 52);
+			this.groupBox1.TabIndex = 63;
+			this.groupBox1.TabStop = false;
+			// 
 			// F_login
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(755, 135);
+			this.ClientSize = new System.Drawing.Size(743, 185);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.rb_address);
 			this.Controls.Add(this.rb_wifKey);
 			this.Controls.Add(this.rb_id);
 			this.Controls.Add(this.tb_wifKey);
-			this.Controls.Add(this.bt_login);
 			this.Controls.Add(this.tb_address);
 			this.Controls.Add(this.tb_ID);
 			this.Name = "F_login";
 			this.Text = "登录";
 			this.Load += new System.EventHandler(this.F_login_Load);
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -140,5 +179,8 @@
 		private System.Windows.Forms.RadioButton rb_id;
 		private System.Windows.Forms.RadioButton rb_wifKey;
 		private System.Windows.Forms.RadioButton rb_address;
+		private System.Windows.Forms.RadioButton radioButton_mainnet;
+		private System.Windows.Forms.RadioButton radioButton_testnet;
+		private System.Windows.Forms.GroupBox groupBox1;
 	}
 }

@@ -33,28 +33,34 @@ namespace bsv_testnet_wallet
 		private void bt_login_Click(object sender, EventArgs e)
 		{
 			this.Enabled = false;
+			Program.bsvTestWallet = null;
 			clearForm();
 			Program.showForm("f_login", "F_login", this);
 			//string ID = tb_ID.Text.Trim();
 			//if (!(ID == ""))
 			//{
 			//	Program.bsvTestWallet = new Class_wallet(ID, radioButton_testnet.Checked);
-			//	tb_originalKey.Text = Program.bsvTestWallet.OriginalKeyStr;
-			//	tb_wifKey.Text=Program.bsvTestWallet.WifKeyStr;
-			//	tb_compressedPubkey.Text = Program.bsvTestWallet.CompressedPubKeyStr;
-			//	tb_pubKeyHash.Text = Program.bsvTestWallet.PubKeyHashStr;
-			//	tb_address.Text = Program.bsvTestWallet.AddressStr;
-			//	tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
-			//	tb_changeAddress.Text = Program.bsvTestWallet.AddressStr;
-			//	/////////////////////
-			//	tb_destAddress.Text = Program.bsvTestWallet.AddressStr;
-			//	/////////////////////
 			//}
 			//else
 			//{
 			//	MessageBox.Show("学号为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			//}
 			this.Enabled = true;
+		}
+		internal void showWalletInfo()
+		{
+			tb_ID.Text = Program.bsvTestWallet.ID;
+			tb_network.Text = Program.bsvTestWallet.NetWork;
+			tb_originalKey.Text = Program.bsvTestWallet.OriginalKeyStr;
+			tb_wifKey.Text = Program.bsvTestWallet.WifKeyStr;
+			tb_compressedPubkey.Text = Program.bsvTestWallet.CompressedPubKeyStr;
+			tb_pubKeyHash.Text = Program.bsvTestWallet.PubKeyHashStr;
+			tb_address.Text = Program.bsvTestWallet.AddressStr;
+			tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
+			tb_changeAddress.Text = Program.bsvTestWallet.AddressStr;
+			/////////////////////
+			tb_destAddress.Text = Program.bsvTestWallet.AddressStr;
+			/////////////////////
 		}
 
 		private void bt_utxo_Click(object sender, EventArgs e)
@@ -100,10 +106,10 @@ namespace bsv_testnet_wallet
 			this.Enabled = true;
 		}
 
-		private void radioButton_testnet_CheckedChanged(object sender, EventArgs e)
-		{
-			clearForm();
-		}
+		//private void radioButton_testnet_CheckedChanged(object sender, EventArgs e)
+		//{
+		//	clearForm();
+		//}
 
 		void clearForm()
 		{
