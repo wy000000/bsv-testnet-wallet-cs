@@ -169,6 +169,12 @@ namespace bsv_testnet_wallet
 				this.Enabled = true;
 				return;
 			}
+			if (long.Parse(tb_sats.Text) >= long.Parse(tb_balance.Text))
+			{
+				MessageBox.Show("余额不足！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Enabled = true;
+				return;
+			}
 			string sendInfo = null;
 			bool sendSuccess = Program.bsvTestWallet.sendCoins(long.Parse(tb_sats.Text), tb_destAddress.Text.Trim(),
 				tb_destAddress.Text, tb_opReturn.Text.Trim(), out sendInfo);
