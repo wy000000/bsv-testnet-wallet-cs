@@ -43,6 +43,7 @@ namespace bsv_testnet_wallet
 		internal string PubKeyHashStr { get { return pubKeyHashStr; } }
 		internal string AddressStr { get { return addressStr; } }
 		internal long BalanceSats { get { return displayBalance; } }
+		internal int WalletType { get { return walletType; } }
 
 		//internal RestApiUtxo_class[] Utxos { get { GetUtxosForOutside(); return utxos; } }
 
@@ -62,13 +63,13 @@ namespace bsv_testnet_wallet
 			//utxoBalance=utxoBalancep;
 			getUtxosAndRefreshBalance();
 		}
-		static bool isValidAddress(string str, Network net, out BitcoinAddress address)
+		static bool isValidAddress(string str, Network net, out BitcoinPubKeyAddress address)
 		{
 			address = null;
 			try
 			{
 				// 尝试创建一个Bitcoin地址实例
-				address = BitcoinAddress.Create(str, net);
+				address = new BitcoinPubKeyAddress(str, net);
 				//addressStr = str;
 				//pubKeyHashStr = bitcoinAddress.ScriptPubKey.ToString();
 				//getUtxosAndRefreshBalance();
@@ -131,10 +132,10 @@ namespace bsv_testnet_wallet
 			string netStr = isTestnet ? bsvConfiguration_class.testNetwork : bsvConfiguration_class.mainNetwork;
 			if (walletTypep == walletTypeAddress)
 			{
-				BitcoinAddress address = null;
+				BitcoinPubKeyAddress address = null;
 				if (!isValidAddress(str, net, out address)) { return null; }
 				Class_wallet aBsvWallet = new Class_wallet(netStr, walletTypep, null, null, null, null,
-					address.ScriptPubKey.ToString(), address.ToString());
+					address.Hash.ToString(), address.ToString());
 				return (aBsvWallet);
 			}
 			if (walletTypep == walletTypeWifKey)
@@ -159,6 +160,7 @@ namespace bsv_testnet_wallet
 				}
 				Key key = new Key(sha256bytes);
 				BitcoinSecret wifKey = key.GetWif(net);
+				//wifKey = key.GetBitcoinSecret(net);
 				Class_wallet aBsvWallet = new Class_wallet(netStr, walletTypep, str, keyStr, wifKey.ToString(),
 					wifKey.PubKey.ToString(), wifKey.PubKeyHash.ToString(), wifKey.GetAddress().ToString());
 				return (aBsvWallet);

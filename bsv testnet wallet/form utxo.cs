@@ -39,7 +39,7 @@ namespace bsv_testnet_wallet
 				RestApiUtxo_class[] utxos = Program.bsvTestWallet.getUtxosAndRefreshBalance();
 				if (utxos != null)
 				{
-					f_main.changeBalance();
+					f_main.showWalletInfo();
 					//= Program.bsvTestWallet.Utxos;
 					linkLabels = new LinkLabel[utxos.Length];
 					for (int i = 0; i < linkLabels.Length; i++)

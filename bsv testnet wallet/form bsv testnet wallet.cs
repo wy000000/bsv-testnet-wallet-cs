@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace bsv_testnet_wallet
 {
-		
+
 	public partial class F_wallet : Form
 	{
 		//internal Class_wallet Program.bsvTestWallet = null;
@@ -21,13 +21,13 @@ namespace bsv_testnet_wallet
 
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			linkLabel1.LinkVisited= true;
+			linkLabel1.LinkVisited = true;
 			System.Diagnostics.Process.Start("https://scrypt.io/faucet");
 		}
 
 		private void F_wallet_Load(object sender, EventArgs e)
 		{
-
+			showWalletInfo();
 		}
 
 		private void bt_login_Click(object sender, EventArgs e)
@@ -49,18 +49,34 @@ namespace bsv_testnet_wallet
 		}
 		internal void showWalletInfo()
 		{
-			tb_ID.Text = Program.bsvTestWallet.ID;
-			tb_network.Text = Program.bsvTestWallet.NetWork;
-			tb_originalKey.Text = Program.bsvTestWallet.OriginalKeyStr;
-			tb_wifKey.Text = Program.bsvTestWallet.WifKeyStr;
-			tb_compressedPubkey.Text = Program.bsvTestWallet.CompressedPubKeyStr;
-			tb_pubKeyHash.Text = Program.bsvTestWallet.PubKeyHashStr;
-			tb_address.Text = Program.bsvTestWallet.AddressStr;
-			tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
-			tb_changeAddress.Text = Program.bsvTestWallet.AddressStr;
-			/////////////////////
-			tb_destAddress.Text = Program.bsvTestWallet.AddressStr;
-			/////////////////////
+			if (Program.bsvTestWallet == null)
+			{
+				bt_send.Enabled = false;
+				bt_utxo.Enabled = false;
+				bt_tx.Enabled = false;
+				bt_refreshBalance.Enabled = false;
+			}
+			else
+			{
+				tb_ID.Text = Program.bsvTestWallet.ID;
+				tb_network.Text = Program.bsvTestWallet.NetWork;
+				tb_originalKey.Text = Program.bsvTestWallet.OriginalKeyStr;
+				tb_wifKey.Text = Program.bsvTestWallet.WifKeyStr;
+				tb_compressedPubkey.Text = Program.bsvTestWallet.CompressedPubKeyStr;
+				tb_pubKeyHash.Text = Program.bsvTestWallet.PubKeyHashStr;
+				tb_address.Text = Program.bsvTestWallet.AddressStr;
+				tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
+				tb_changeAddress.Text = Program.bsvTestWallet.AddressStr;
+				/////////////////////
+				tb_destAddress.Text = Program.bsvTestWallet.AddressStr;
+				bt_send.Enabled = true;
+				bt_utxo.Enabled=true;
+				bt_tx.Enabled=true;
+				bt_refreshBalance.Enabled=true;
+				if (Program.bsvTestWallet.WalletType == Class_wallet.walletTypeAddress
+					|| Program.bsvTestWallet.BalanceSats == 0)
+					bt_send.Enabled = false;
+			}
 		}
 
 		private void bt_utxo_Click(object sender, EventArgs e)
@@ -133,7 +149,7 @@ namespace bsv_testnet_wallet
 			if (Program.bsvTestWallet != null)
 			{
 				Program.bsvTestWallet.getUtxosAndRefreshBalance();
-				changeBalance();
+				showWalletInfo();
 			}
 			this.Enabled = true;
 		}
@@ -170,10 +186,10 @@ namespace bsv_testnet_wallet
 			this.Enabled = true;
 		}
 
-		public void changeBalance()
-		{
-			tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
-		}
+		//public void changeBalance()
+		//{
+		//	tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
+		//}
 
 		private void tb_address_DoubleClick(object sender, EventArgs e)
 		{
