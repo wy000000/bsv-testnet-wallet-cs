@@ -131,6 +131,12 @@
     <Compile Include="Form login.Designer.cs">
       <DependentUpon>Form login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form sign_encrypt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form sign_encrypt.Designer.cs">
+      <DependentUpon>Form sign_encrypt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form tx.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form login.resx">
       <DependentUpon>Form login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form sign_encrypt.resx">
+      <DependentUpon>Form sign_encrypt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form tx.resx">
       <DependentUpon>Form tx.cs</DependentUpon>

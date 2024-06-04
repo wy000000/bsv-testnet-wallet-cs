@@ -90,8 +90,9 @@
 			this.bt_encryptSign.Name = "bt_encryptSign";
 			this.bt_encryptSign.Size = new System.Drawing.Size(150, 25);
 			this.bt_encryptSign.TabIndex = 55;
-			this.bt_encryptSign.Text = "加解密与签名验证";
+			this.bt_encryptSign.Text = "签名验证与加密解密";
 			this.bt_encryptSign.UseVisualStyleBackColor = true;
+			this.bt_encryptSign.Click += new System.EventHandler(this.bt_encryptSign_Click);
 			// 
 			// bt_utxo
 			// 
