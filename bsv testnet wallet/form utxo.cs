@@ -62,11 +62,6 @@ namespace bsv_testnet_wallet
 		{
 			showUtxos();
 		}
-		//private void LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		//{
-		//	// 打开默认浏览器访问指定网页
-		//	Process.Start(e.Link.LinkData.ToString());
-		//}
 
 		private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
 		{

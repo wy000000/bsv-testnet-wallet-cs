@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NBitcoin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,6 @@ namespace bsv_testnet_wallet
 
 	public partial class F_wallet : Form
 	{
-		//internal Class_wallet Program.bsvTestWallet = null;
 		public F_wallet()
 		{
 			InitializeComponent();
@@ -36,15 +36,6 @@ namespace bsv_testnet_wallet
 			Program.bsvTestWallet = null;
 			clearForm();
 			Program.showForm("f_login", "F_login", this);
-			//string ID = tb_ID.Text.Trim();
-			//if (!(ID == ""))
-			//{
-			//	Program.bsvTestWallet = new Class_wallet(ID, radioButton_testnet.Checked);
-			//}
-			//else
-			//{
-			//	MessageBox.Show("学号为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			//}
 			this.Enabled = true;
 		}
 		internal void showWalletInfo()
@@ -58,6 +49,8 @@ namespace bsv_testnet_wallet
 			}
 			else
 			{
+				tb_address.BackColor = SystemColors.Control;
+				tb_address.ForeColor = Color.Blue;
 				tb_ID.Text = Program.bsvTestWallet.ID;
 				tb_network.Text = Program.bsvTestWallet.NetWork;
 				tb_originalKey.Text = Program.bsvTestWallet.OriginalKeyStr;
@@ -116,7 +109,6 @@ namespace bsv_testnet_wallet
 			tb_changeAddress.Clear();
 			tb_opReturn.Clear();
 			tb_sats.Clear();
-			//tb_netStatus.Clear();
 		}
 
 		private void bt_refreshBalance_Click(object sender, EventArgs e)
@@ -133,37 +125,40 @@ namespace bsv_testnet_wallet
 		private void bt_send_Click(object sender, EventArgs e)
 		{
 			this.Enabled = false;
-			if(Program.bsvTestWallet==null)
+			try
 			{
-				MessageBox.Show("未登录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.Enabled = true;
-				return;
+				if (tb_sats.Text == "")
+				{
+					MessageBox.Show("No Amount!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					this.Enabled = true;
+					return;
+				}
+				if (long.Parse(tb_sats.Text) >= long.Parse(tb_balance.Text))
+				{
+					MessageBox.Show("Insufficient balance!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					this.Enabled = true;
+					return;
+				}
+				string sendInfo = null;
+				bool sendSuccess = Program.bsvTestWallet.sendCoins(long.Parse(tb_sats.Text),
+					tb_destAddress.Text.Trim(), tb_changeAddress.Text, tb_opReturn.Text.Trim(), out sendInfo);
+				tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
+				if (sendSuccess)
+				{
+					sendInfo = "Sent successfully!" + sendInfo;
+					MessageBox.Show(sendInfo, "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
+				else
+				{
+					sendInfo = "Send failed!" + sendInfo;
+					MessageBox.Show(sendInfo, "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
-			if(tb_sats.Text=="")
+			catch (Exception ex)
 			{
-				MessageBox.Show("发送数量为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.Enabled = true;
-				return;
-			}
-			if (long.Parse(tb_sats.Text) >= long.Parse(tb_balance.Text))
-			{
-				MessageBox.Show("余额不足！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.Enabled = true;
-				return;
-			}
-			string sendInfo = null;
-			bool sendSuccess = Program.bsvTestWallet.sendCoins(long.Parse(tb_sats.Text), tb_destAddress.Text.Trim(),
-				tb_destAddress.Text, tb_opReturn.Text.Trim(), out sendInfo);
-			tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
-			if (sendSuccess)
-			{
-				sendInfo = "发送成功！" + sendInfo;
-				MessageBox.Show(sendInfo, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			}
-			else
-			{
-				sendInfo = "发送失败！" + sendInfo;
-				MessageBox.Show(sendInfo, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				// Display the exception type and message
+				MessageBox.Show(ex.GetType().Name + ", " + ex.Message, "Info", MessageBoxButtons.OK,
+					MessageBoxIcon.Error);
 			}
 			this.Enabled = true;
 		}

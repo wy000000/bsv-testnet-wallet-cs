@@ -32,7 +32,7 @@ namespace bsv_testnet_wallet
 			if (rb_address.Checked)
 			{
 				if (tb_address.Text.Trim() == "")
-					MessageBox.Show("地址为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("No address.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				else
 					Program.bsvTestWallet = Class_wallet.createBsvWallet(tb_address.Text.Trim(),
 						radioButton_testnet.Checked, Class_wallet.walletTypeAddress);
@@ -40,7 +40,7 @@ namespace bsv_testnet_wallet
 			if (rb_wifKey.Checked)
 			{
 				if (tb_wifKey.Text.Trim() == "")
-					MessageBox.Show("钱包私钥为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("No WifKey", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				else
 					Program.bsvTestWallet = Class_wallet.createBsvWallet(tb_wifKey.Text.Trim(),
 						radioButton_testnet.Checked, Class_wallet.walletTypeWifKey);
@@ -48,7 +48,7 @@ namespace bsv_testnet_wallet
 			if (rb_id.Checked)
 			{
 				if (tb_ID.Text.Trim() == "")
-					MessageBox.Show("学号为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("No ID", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				else
 					Program.bsvTestWallet = Class_wallet.createBsvWallet(tb_ID.Text.Trim(),
 						radioButton_testnet.Checked, Class_wallet.walletTypeID);
