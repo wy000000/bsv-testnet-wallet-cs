@@ -49,7 +49,6 @@
 			this.tb_wifKey.ReadOnly = true;
 			this.tb_wifKey.Size = new System.Drawing.Size(619, 25);
 			this.tb_wifKey.TabIndex = 56;
-			this.tb_wifKey.Text = "cPXFF8sEoRoV9FnupRkzpQv4aNTTViim7weqkdNRhLPv2HG7ond6";
 			// 
 			// bt_login
 			// 
@@ -72,7 +71,6 @@
 			this.tb_address.ReadOnly = true;
 			this.tb_address.Size = new System.Drawing.Size(619, 25);
 			this.tb_address.TabIndex = 57;
-			this.tb_address.Text = "mwQFFfRRDxv1QM3haQ1tSEVCsEit92cg3u";
 			// 
 			// tb_ID
 			// 
@@ -81,7 +79,6 @@
 			this.tb_ID.Name = "tb_ID";
 			this.tb_ID.Size = new System.Drawing.Size(619, 25);
 			this.tb_ID.TabIndex = 55;
-			this.tb_ID.Text = "10000";
 			// 
 			// rb_id
 			// 

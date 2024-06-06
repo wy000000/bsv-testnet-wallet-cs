@@ -33,13 +33,14 @@ namespace bsv_testnet_wallet
 		private void bt_login_Click(object sender, EventArgs e)
 		{
 			this.Enabled = false;
-			Program.bsvTestWallet = null;
-			clearForm();
+			//Program.bsvTestWallet = null;
+			//clearForm();
 			Program.showForm("f_login", "F_login", this);
 			this.Enabled = true;
 		}
 		internal void showWalletInfo()
 		{
+			clearForm();
 			if (Program.bsvTestWallet == null)
 			{
 				bt_send.Enabled = false;
@@ -95,10 +96,11 @@ namespace bsv_testnet_wallet
 			Program.showForm("f_s_e", "F_s_e", null);
 		}
 
-
 		void clearForm()
 		{
-			Program.bsvTestWallet = null;
+			//Program.bsvTestWallet = null;
+			tb_ID.Clear();
+			tb_network.Clear();
 			tb_originalKey.Clear();
 			tb_wifKey.Clear();
 			tb_compressedPubkey.Clear();

@@ -152,6 +152,7 @@ namespace bsv_testnet_wallet
 			try
 			{
 				RestApiUtxo_class[] utxos = getUtxos();
+				if (utxos == null) { return null; }
 				long sum = 0;
 				foreach (RestApiUtxo_class utxo in utxos)
 					sum += utxo.Value;
@@ -169,6 +170,11 @@ namespace bsv_testnet_wallet
 		}
 		RestApiUtxo_class[] getUtxos()
 		{
+			if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+			{
+				MessageBox.Show("No Internet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
+			}
 			RestApiUtxo_class[] utxos = null;
 			Task t = Task.Run(() =>
 			{
@@ -179,6 +185,11 @@ namespace bsv_testnet_wallet
 		}
 		internal RestApiAddressHistoryTx[] getTxs()
 		{
+			if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+			{
+				MessageBox.Show("No Internet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
+			}
 			try
 			{
 				RestApiAddressHistoryTx[] txs = null;
@@ -202,6 +213,11 @@ namespace bsv_testnet_wallet
 			string op_returnString, out string outSendInfo)
 		{
 			outSendInfo = null;
+			if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+			{
+				MessageBox.Show("No Internet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
 			try
 			{
 				BitcoinAddress addr = BitcoinAddress.Create(destAddress, NbitNetWork);

@@ -28,7 +28,6 @@ namespace bsv_testnet_wallet
 		{
 			this.Enabled = false;
 			f_main.Enabled = false;
-
 			if (rb_address.Checked)
 			{
 				if (tb_address.Text.Trim() == "")
