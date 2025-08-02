@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bsv testnet wallet", "bsv t
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{68DAD133-6EA1-4817-8D59-20410EEADBCA}"
 	ProjectSection(SolutionItems) = preProject
+		bsv_testnet_wallet_127x127.ico = bsv_testnet_wallet_127x127.ico
 		login.png = login.png
 		main.png = main.png
 		README.md = README.md

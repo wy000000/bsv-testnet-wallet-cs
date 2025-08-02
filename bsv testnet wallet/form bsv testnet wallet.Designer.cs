@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_wallet));
 			this.tb_wifKey = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.bt_encryptSign = new System.Windows.Forms.Button();
@@ -63,6 +64,8 @@
 			this.tb_network = new System.Windows.Forms.TextBox();
 			this.label16 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tb_wifKey
@@ -397,11 +400,22 @@
 			this.label9.TabIndex = 57;
 			this.label9.Text = "Double click on the address to jump to the website.";
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = global::bsv_testnet_wallet.Properties.Resources.bsv_testnet_wallet_127x127;
+			this.pictureBox1.Location = new System.Drawing.Point(719, 369);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(77, 77);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 58;
+			this.pictureBox1.TabStop = false;
+			// 
 			// F_wallet
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(811, 461);
+			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.tb_wifKey);
 			this.Controls.Add(this.label8);
@@ -438,11 +452,13 @@
 			this.Controls.Add(this.label14);
 			this.Controls.Add(this.label13);
 			this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.MaximizeBox = false;
 			this.Name = "F_wallet";
 			this.Text = "BSV Testnet Wallet";
 			this.Load += new System.EventHandler(this.F_wallet_Load);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -485,6 +501,7 @@
 		private System.Windows.Forms.TextBox tb_network;
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
 
