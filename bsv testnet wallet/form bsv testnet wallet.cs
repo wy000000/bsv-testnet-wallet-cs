@@ -142,8 +142,9 @@ namespace bsv_testnet_wallet
 					return;
 				}
 				string sendInfo = null;
+				string opReturnText = tb_opReturn.Text.Trim() == "" ? null : tb_destAddress.Text.Trim();
 				bool sendSuccess = Program.bsvTestWallet.sendCoins(long.Parse(tb_sats.Text),
-					tb_destAddress.Text.Trim(), tb_changeAddress.Text, tb_opReturn.Text.Trim(), out sendInfo);
+					tb_destAddress.Text.Trim(), tb_changeAddress.Text.Trim(), opReturnText, out sendInfo);
 				tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
 				if (sendSuccess)
 				{
