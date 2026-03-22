@@ -58,5 +58,10 @@ namespace bsv_testnet_wallet
 		{
 			showTx();
 		}
+
+		private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
 	}
 }

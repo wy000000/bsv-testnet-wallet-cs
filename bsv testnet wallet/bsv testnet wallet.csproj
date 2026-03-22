@@ -79,8 +79,8 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="BsvSimpleLibrary, Version=0.2.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BsvSimpleLibrary.0.2.4\lib\netstandard2.0\BsvSimpleLibrary.dll</HintPath>
+    <Reference Include="BsvSimpleLibrary, Version=0.2.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BsvSimpleLibrary.0.2.5.1\lib\netstandard2.0\BsvSimpleLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
