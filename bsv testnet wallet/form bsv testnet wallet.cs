@@ -129,13 +129,17 @@ namespace bsv_testnet_wallet
 			this.Enabled = false;
 			try
 			{
+				long sendSats;
 				if (tb_sats.Text == "")
 				{
-					MessageBox.Show("No Amount!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					this.Enabled = true;
-					return;
+					sendSats = 0;
+					//MessageBox.Show("No Amount!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					//this.Enabled = true;
+					//return;
 				}
-				if (long.Parse(tb_sats.Text) >= long.Parse(tb_balance.Text))
+				else
+					sendSats = long.Parse(tb_sats.Text);
+				if (sendSats >= long.Parse(tb_balance.Text))
 				{
 					MessageBox.Show("Insufficient balance!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					this.Enabled = true;
@@ -143,8 +147,13 @@ namespace bsv_testnet_wallet
 				}
 				string sendInfo = null;
 				string opReturnText = tb_opReturn.Text.Trim() == "" ? null : tb_destAddress.Text.Trim();
-				bool sendSuccess = Program.bsvTestWallet.sendCoins(long.Parse(tb_sats.Text),
-					tb_destAddress.Text.Trim(), tb_changeAddress.Text.Trim(), opReturnText, out sendInfo);
+				string destAddress = tb_destAddress.Text.Trim();
+				if (sendSats==0)
+				{
+					destAddress = null;
+				}
+				bool sendSuccess = Program.bsvTestWallet.sendCoins(sendSats,
+					destAddress, tb_changeAddress.Text.Trim(), opReturnText, out sendInfo);
 				tb_balance.Text = Program.bsvTestWallet.BalanceSats.ToString();
 				if (sendSuccess)
 				{

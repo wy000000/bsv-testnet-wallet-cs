@@ -220,7 +220,9 @@ namespace bsv_testnet_wallet
 			}
 			try
 			{
-				BitcoinAddress addr = BitcoinAddress.Create(destAddress, NbitNetWork);
+				BitcoinAddress addr = null;
+				if (destAddress != null)
+					addr = BitcoinAddress.Create(destAddress, NbitNetWork);
 				BitcoinAddress addr2=BitcoinAddress.Create(changeBackAddress, NbitNetWork);
 				Transaction tx = null;
 				long fee = 0;
