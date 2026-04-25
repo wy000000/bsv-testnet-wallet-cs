@@ -146,7 +146,7 @@ namespace bsv_testnet_wallet
 					return;
 				}
 				string sendInfo = null;
-				string opReturnText = tb_opReturn.Text.Trim() == "" ? null : tb_destAddress.Text.Trim();
+				string opReturnText = tb_opReturn.Text.Trim() == "" ? null : tb_opReturn.Text.Trim();
 				string destAddress = tb_destAddress.Text.Trim();
 				if (sendSats==0)
 				{

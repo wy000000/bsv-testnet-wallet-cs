@@ -458,7 +458,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.MaximizeBox = false;
 			this.Name = "F_wallet";
-			this.Text = "BSV Testnet Wallet Ver 0.1.3";
+			this.Text = "BSV Testnet Wallet Ver 0.1.4";
 			this.Load += new System.EventHandler(this.F_wallet_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);

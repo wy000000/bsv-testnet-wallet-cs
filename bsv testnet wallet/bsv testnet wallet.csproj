@@ -79,8 +79,8 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="BsvSimpleLibrary, Version=0.2.5.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BsvSimpleLibrary.0.2.5.1\lib\netstandard2.0\BsvSimpleLibrary.dll</HintPath>
+    <Reference Include="BsvSimpleLibrary, Version=0.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BsvSimpleLibrary.0.2.6\lib\netstandard2.0\BsvSimpleLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -91,14 +91,14 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.1\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="NBitcoin, Version=5.0.76.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NBitcoin.5.0.76\lib\net461\NBitcoin.dll</HintPath>
+    <Reference Include="NBitcoin, Version=10.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NBitcoin.10.0.3\lib\net472\NBitcoin.dll</HintPath>
     </Reference>
-    <Reference Include="NBitcoin.Altcoins, Version=2.0.30.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NBitcoin.Altcoins.2.0.30\lib\net452\NBitcoin.Altcoins.dll</HintPath>
+    <Reference Include="NBitcoin.Altcoins, Version=6.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NBitcoin.Altcoins.6.0.3\lib\net472\NBitcoin.Altcoins.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">

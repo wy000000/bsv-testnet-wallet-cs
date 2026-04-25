@@ -117,7 +117,7 @@ namespace bsv_testnet_wallet
 					//if (!isValidWifKey(str, net, out wifKey)) { return null; }
 					Class_wallet aBsvWallet = new Class_wallet(netStr, net, walletTypep, null, null,
 						wifKey.ToString(), wifKey.PubKey.ToString(), wifKey.PubKey.Hash.ToString(),
-						wifKey.GetAddress().ToString());
+						wifKey.GetAddress(ScriptPubKeyType.Legacy).ToString());
 					return (aBsvWallet);
 				}
 				if (walletTypep == walletTypeID)
@@ -135,7 +135,7 @@ namespace bsv_testnet_wallet
 					BitcoinSecret wifKey = key.GetWif(net);
 					//wifKey = key.GetBitcoinSecret(net);
 					Class_wallet aBsvWallet = new Class_wallet(netStr, net, walletTypep, str, keyStr, wifKey.ToString(),
-						wifKey.PubKey.ToString(), wifKey.PubKeyHash.ToString(), wifKey.GetAddress().ToString());
+						wifKey.PubKey.ToString(), wifKey.PubKeyHash.ToString(), wifKey.GetAddress(ScriptPubKeyType.Legacy).ToString());
 					return (aBsvWallet);
 				}
 			}
