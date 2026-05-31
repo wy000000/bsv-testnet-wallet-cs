@@ -22,7 +22,7 @@ namespace bsv_testnet_wallet
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			linkLabel1.LinkVisited = true;
-			System.Diagnostics.Process.Start("https://scrypt.io/faucet");
+			System.Diagnostics.Process.Start("https://witnessonchain.com/faucet/tbsv");
 		}
 
 		private void F_wallet_Load(object sender, EventArgs e)
